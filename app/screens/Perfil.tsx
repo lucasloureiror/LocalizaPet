@@ -48,30 +48,6 @@ const Perfil = () => {
           />
           <Text style={[styles.setting, styles.homeTypo]}>Cadastrar</Text>
         </View>
-      </View>
-      <View style={[styles.phoneBarParent, styles.phoneBg]}>
-        <View style={[styles.phoneBar, styles.phoneBg]}>
-          <View style={styles.time}>
-            <Text style={styles.time1}>6:31</Text>
-          </View>
-          <View style={styles.container}>
-            <Image
-              style={styles.batteryIcon}
-              contentFit="cover"
-              source={require("../../assets/battery1.png")}
-            />
-            <Image
-              style={styles.combinedShapeIcon}
-              contentFit="cover"
-              source={require("../../assets/combined-shape1.png")}
-            />
-            <Image
-              style={styles.wiFiIcon}
-              contentFit="cover"
-              source={require("../../assets/wifi1.png")}
-            />
-          </View>
-        </View>
         <View style={styles.frameChild} />
       </View>
       <View style={styles.perfilInner}>

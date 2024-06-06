@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { Color, Padding, Border, FontSize, FontFamily } from "../GlobalStyles";
+
+const { width, height } = Dimensions.get('window');
 
 const Onboarding = () => {
   return (
@@ -48,7 +50,7 @@ const Onboarding = () => {
             styles.unsplashisg37ai2aSIcon,
             styles.unsplashisg37ai2aIconLayout,
           ]}
-          contentFit="cover"
+          contentFit="contain"
           source={require("../../assets/unsplashisg37ai2as.png")}
         />
         <Image
@@ -56,7 +58,7 @@ const Onboarding = () => {
             styles.unsplashisg37ai2aSIcon1,
             styles.unsplashisg37ai2aIconLayout,
           ]}
-          contentFit="cover"
+          contentFit="contain"
           source={require("../../assets/unsplashisg37ai2as1.png")}
         />
       </View>
@@ -75,9 +77,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: Border.br_xs,
     width: "47.42%",
-    bottom: "0%",
-    top: "0%",
-    height: "100%",
     flexDirection: "row",
     alignItems: "center",
     position: "absolute",
@@ -89,7 +88,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   unsplashisg37ai2aLayout: {
-    height: 364,
+    height: height * 0.4,
     left: 18,
   },
   unsplashisg37ai2aIconLayout: {
@@ -97,8 +96,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   onboardingChild: {
-    width: 430,
-    height: 526,
+    width: width,
+    height: height * 0.6,
     left: 0,
     top: 0,
     position: "absolute",
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   frameGroup: {
-    width: 388,
+    width: width * 0.9,
     alignItems: "center",
   },
   registrarPet: {
@@ -165,34 +164,34 @@ const styles = StyleSheet.create({
   groupWrapper: {
     height: 56,
     marginTop: 24,
-    width: 388,
+    width: width * 0.9,
   },
   frameParent: {
-    top: 577,
+    top: height * 0.65,
     left: 21,
     alignItems: "center",
     position: "absolute",
   },
   unsplashisg37ai2aSIcon: {
     top: 23,
-    width: 349,
-    height: 338,
+    width: width * 0.9,
+    height: height * 0.4,
     left: 0,
   },
   unsplashisg37ai2aSIcon1: {
-    width: 376,
-    height: 364,
+    width: width * 0.9,
+    height: height * 0.4,
     left: 18,
     top: 0,
   },
   unsplashisg37ai2aSParent: {
     top: 38,
-    width: 394,
+    width: width * 0.9,
     position: "absolute",
   },
   onboarding: {
     backgroundColor: Color.neutral8,
-    height: 932,
+    height: height,
     overflow: "hidden",
     width: "100%",
     flex: 1,
