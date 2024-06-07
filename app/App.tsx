@@ -3,12 +3,12 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Onboarding from "./screens/Onboarding";
-import Registro from "./screens/Registro";
 import Registro1 from "./screens/Registro1";
+import Registro2 from "./screens/Registro2";
+import Registro3 from "./screens/Registro3";
 import Perfil from "./screens/Perfil";
 import Desaparecidos from "./screens/Desaparecidos";
 import Encontrados from "./screens/Encontrados";
-import Registro2 from "./screens/Registro2";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
@@ -41,13 +41,18 @@ const App = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="Registro"
-              component={Registro}
+              name="Registro1"
+              component={Registro1}
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="Registro1"
-              component={Registro1}
+              name="Registro2"
+              component={Registro2}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Registro3"
+              component={Registro3}
               options={{ headerShown: false }}
             />
             <Stack.Screen
@@ -63,11 +68,6 @@ const App = () => {
             <Stack.Screen
               name="Encontrados"
               component={Encontrados}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Registro2"
-              component={Registro2}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

@@ -3,77 +3,132 @@ import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
-import { FontSize, FontFamily, Border, Color, Padding } from "../GlobalStyles";
+import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
 
 const Registro1 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   return (
-    <View style={styles.registro3}>
-      
+    <View style={styles.registro1}>
       <View
-        style={[
-          styles.agoraDeixeSeuContatoParaAWrapper,
-          styles.primaryButtonPosition,
-        ]}
+        style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}
       >
-        <Text style={[styles.agoraDeixeSeu, styles.agoraDeixeSeuTypo]}>
-          Agora deixe seu contato para auxiliar o encontro do pet ou do dono
+        <Text style={[styles.paraComearRegistre, styles.primaryButton1Typo]}>
+          Para começar, registre o tipo de pet, se ele está desaparecido ou foi
+          encontrado e adicione uma foto dele.
         </Text>
       </View>
-      <View style={[styles.registro3Inner, styles.primaryButtonPosition]}>
-        <View style={[styles.frameParent, styles.phoneBarPosition]}>
-          <Pressable
-            style={styles.frame}
-            onPress={() => navigation.navigate("Registro2")}
-          >
-            <Image
-              style={[styles.icon, styles.iconLayout]}
-              contentFit="cover"
-              source={require("../../assets/frame.png")}
-            />
-          </Pressable>
-          <View style={styles.wrapper}>
-            <Text style={[styles.text, styles.textTypo]}>3/3</Text>
-          </View>
-          <Pressable
-            style={styles.framePressable}
-            onPress={() => navigation.navigate("Desaparecidos")}
-          >
-            <Image
-              style={styles.iconLayout}
-              contentFit="cover"
-              source={require("../../assets/frame-60134.png")}
-            />
-          </Pressable>
+      <View style={[styles.frameParent, styles.parentPosition]}>
+        <Pressable
+          style={styles.frame}
+          onPress={() => navigation.navigate("Registro2")}
+        >
+          <Image
+            style={[styles.icon, styles.iconLayout]}
+            contentFit="cover"
+            source={require("../../assets/frame.png")}
+          />
+        </Pressable>
+        <View style={styles.wrapper}>
+          <Text style={[styles.text, styles.textTypo]}>1/3</Text>
         </View>
+        <Pressable
+          style={styles.framePressable}
+          onPress={() => navigation.navigate("Desaparecidos")}
+        >
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame-60134.png")}
+          />
+        </Pressable>
       </View>
-      <View style={[styles.primaryButton, styles.frameViewFlexBox]}>
-        <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
+      <View style={styles.primaryButton}>
+        <Text style={[styles.primaryButton1, styles.primaryButton1Typo]}>
           Continuar
         </Text>
         <Image
-          style={styles.heroiconsSolidarrowLongRig}
+          style={[styles.heroiconsSolidarrowLongRig, styles.heroiconsLayout]}
           contentFit="cover"
           source={require("../../assets/heroiconssolidarrowlongright.png")}
         />
       </View>
-      <View style={[styles.inputField7Parent, styles.primaryButtonPosition]}>
-        <View style={styles.inputField7}>
-          <Text style={[styles.phoneNumber, styles.textTypo]}>E-mail</Text>
-          <View style={[styles.frameView, styles.frameViewFlexBox]}>
-            <Text style={[styles.text1, styles.textTypo]}>
-              Endereço de e-mail
-            </Text>
+      <View style={[styles.inputField9Parent, styles.parentPosition]}>
+        <View style={styles.inputField9}>
+          <Text style={[styles.espcieDePet, styles.textTypo]}>
+            Espécie de pet
+          </Text>
+          <View
+            style={[styles.inputField9Inner, styles.inputField9InnerBorder]}
+          >
+            <View style={styles.frameGroup}>
+              <View style={styles.selectTypeOfPetWrapper}>
+                <Text style={[styles.selectTypeOf, styles.textTypo]}>
+                  Espécie
+                </Text>
+              </View>
+              <Image
+                style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
+                contentFit="cover"
+                source={require("../../assets/heroiconssolidplay.png")}
+              />
+            </View>
           </View>
         </View>
-        <View style={styles.inputField8}>
-          <Text style={[styles.phoneNumber, styles.textTypo]}>
-            Telefone ou WhatsApp
+        <View style={styles.inputField12}>
+          <Text style={[styles.espcieDePet, styles.textTypo]}>
+            Tipo de registro
           </Text>
-          <View style={[styles.frameView, styles.frameViewFlexBox]}>
-            <Text style={[styles.text1, styles.textTypo]}>(55)9xxxx-xxxx</Text>
+          <View
+            style={[styles.inputField9Inner, styles.inputField9InnerBorder]}
+          >
+            <View style={styles.frameGroup}>
+              <View style={styles.selectTypeOfPetWrapper}>
+                <Text style={[styles.selectTypeOf, styles.textTypo]}>
+                  Desaparecido ou encontrado
+                </Text>
+              </View>
+              <Image
+                style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
+                contentFit="cover"
+                source={require("../../assets/heroiconssolidplay.png")}
+              />
+            </View>
           </View>
+        </View>
+        <View style={styles.inputField12}>
+          <View style={styles.inputField11Inner}>
+            <View style={styles.frameView}>
+              <View style={styles.selectTypeOfPetWrapper}>
+                <Text style={[styles.selectTypeOf, styles.textTypo]}>
+                  Data de encontro ou desaparecimento
+                </Text>
+              </View>
+              <Image
+                style={[
+                  styles.heroiconsSolidcalendarDays,
+                  styles.heroiconsLayout,
+                ]}
+                contentFit="cover"
+                source={require("../../assets/heroiconssolidcalendardays.png")}
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View style={styles.inputField91}>
+        <Text style={[styles.espcieDePet, styles.textTypo]}>Imagem do pet</Text>
+        <View
+          style={[
+            styles.heroiconsSoliduserCircleWrapper,
+            styles.inputField9InnerBorder,
+          ]}
+        >
+          <Image
+            style={styles.heroiconsSoliduserCircle}
+            contentFit="cover"
+            source={require("../../assets/heroiconssolidusercircle.png")}
+          />
         </View>
       </View>
     </View>
@@ -81,18 +136,15 @@ const Registro1 = () => {
 };
 
 const styles = StyleSheet.create({
-  phoneBarPosition: {
+  phoneBarFlexBox: {
     justifyContent: "space-between",
-    left: 0,
-    top: 0,
     flexDirection: "row",
-    position: "absolute",
   },
-  primaryButtonPosition: {
+  parentPosition: {
     left: 20,
     position: "absolute",
   },
-  agoraDeixeSeuTypo: {
+  primaryButton1Typo: {
     textAlign: "left",
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
@@ -106,7 +158,18 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     textAlign: "left",
   },
-  frameViewFlexBox: {
+  heroiconsLayout: {
+    height: 16,
+    width: 16,
+  },
+  inputField9InnerBorder: {
+    marginTop: 4,
+    padding: Padding.p_xs,
+    borderWidth: 0.3,
+    borderColor: Color.colorDarkgray_100,
+    borderStyle: "solid",
+    backgroundColor: Color.neutralVariant100,
+    alignSelf: "stretch",
     borderRadius: Border.br_xs,
     alignItems: "center",
     flexDirection: "row",
@@ -151,15 +214,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     left: 0,
     top: 0,
+    position: "absolute",
     backgroundColor: Color.bgCOLOUR,
   },
-  agoraDeixeSeu: {
+  paraComearRegistre: {
     fontFamily: FontFamily.loraRegular,
     color: Color.neutral10,
     flex: 1,
     textAlign: "left",
   },
-  agoraDeixeSeuContatoParaAWrapper: {
+  paraComearRegistreOTipoWrapper: {
     top: 102,
     width: 390,
     flexDirection: "row",
@@ -174,7 +238,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: FontSize.size_5xl,
     lineHeight: 28,
-    width: 46,
+    width: 55,
     color: Color.neutral10,
   },
   wrapper: {
@@ -186,15 +250,10 @@ const styles = StyleSheet.create({
     width: 24,
   },
   frameParent: {
+    top: 60,
     width: 390,
     justifyContent: "space-between",
-    left: 0,
-    top: 0,
-  },
-  registro3Inner: {
-    top: 60,
-    height: 28,
-    width: 390,
+    flexDirection: "row",
   },
   primaryButton1: {
     fontWeight: "700",
@@ -202,54 +261,107 @@ const styles = StyleSheet.create({
     color: Color.neutralVariant100,
   },
   heroiconsSolidarrowLongRig: {
-    height: 16,
     display: "none",
     marginLeft: 8,
-    width: 16,
   },
   primaryButton: {
     top: 854,
     backgroundColor: Color.neutral8,
     height: 52,
-    justifyContent: "center",
     paddingHorizontal: Padding.p_13xl,
     paddingVertical: Padding.p_xl,
+    justifyContent: "center",
+    borderRadius: Border.br_xs,
     width: 390,
     left: 20,
+    alignItems: "center",
+    flexDirection: "row",
     position: "absolute",
   },
-  phoneNumber: {
+  espcieDePet: {
     lineHeight: 18,
     color: Color.neutral10,
     fontSize: FontSize.labelBold_size,
   },
-  text1: {
+  selectTypeOf: {
     color: Color.neutral3,
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
+    fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
   },
-  frameView: {
-    alignSelf: "stretch",
-    backgroundColor: Color.neutralVariant100,
-    borderStyle: "solid",
-    borderColor: Color.neutral3,
-    borderWidth: 1,
+  selectTypeOfPetWrapper: {
+    justifyContent: "center",
+    flexDirection: "row",
+    left: 0,
+    top: 0,
+    position: "absolute",
+  },
+  heroiconsSolidplay: {
+    top: 4,
+    left: 226,
+    position: "absolute",
+  },
+  frameGroup: {
+    width: 242,
+    height: 24,
+  },
+  inputField9Inner: {
+    justifyContent: "flex-end",
     height: 48,
-    padding: Padding.p_xs,
     marginTop: 4,
   },
-  inputField7: {
+  inputField9: {
     width: 390,
   },
-  inputField8: {
+  inputField12: {
     marginTop: 16,
     width: 390,
   },
-  inputField7Parent: {
-    top: 184,
+  heroiconsSolidcalendarDays: {
+    top: 3,
+    left: 309,
+    position: "absolute",
+    overflow: "hidden",
   },
-  registro3: {
+  frameView: {
+    width: 325,
+    height: 21,
+  },
+  inputField11Inner: {
+    padding: Padding.p_xs,
+    borderWidth: 0.3,
+    borderColor: Color.colorDarkgray_100,
+    borderStyle: "solid",
+    backgroundColor: Color.neutralVariant100,
+    alignSelf: "stretch",
+    justifyContent: "flex-end",
+    height: 48,
+    borderRadius: Border.br_xs,
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  inputField9Parent: {
+    top: 190,
+    height: 440,
+  },
+  heroiconsSoliduserCircle: {
+    width: 84,
+    height: 84,
+    overflow: "hidden",
+  },
+  heroiconsSoliduserCircleWrapper: {
+    height: 106,
+    justifyContent: "center",
+  },
+  inputField91: {
+    top: 438,
+    left: 130,
+    width: 166,
+    height: 128,
+    position: "absolute",
+  },
+  registro1: {
     height: 932,
     overflow: "hidden",
     width: "100%",

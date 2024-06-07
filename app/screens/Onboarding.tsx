@@ -1,11 +1,23 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions, Pressable } from "react-native";
 import { Color, Padding, Border, FontSize, FontFamily } from "../GlobalStyles";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation, ParamListBase } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get('window');
 
 const Onboarding = () => {
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+  const clickRegistrarPetHandler = () => {
+    navigation.navigate("Registro1");
+  }
+
+  const clickProcurarHandler = () => {
+    navigation.navigate("Desaparecidos");
+  }
+
   return (
     <View style={styles.onboarding}>
       <Image
@@ -27,14 +39,18 @@ const Onboarding = () => {
         <View style={styles.groupWrapper}>
           <View style={styles.frameContainer}>
             <View style={[styles.registrarPetWrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.registrarPet, styles.procurarTypo]}>
-                Registrar pet
-              </Text>
+              <Pressable onPress={clickRegistrarPetHandler}>
+                <Text style={[styles.registrarPet, styles.procurarTypo]}>
+                  Registrar pet
+                </Text>
+              </Pressable>
             </View>
             <View style={[styles.procurarWrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.procurar, styles.procurarTypo]}>
-                Procurar
-              </Text>
+              <Pressable onPress={clickProcurarHandler}>
+                <Text style={[styles.procurar, styles.procurarTypo]}>
+                  Procurar
+                </Text>
+              </Pressable>
             </View>
           </View>
         </View>
