@@ -11,12 +11,12 @@ export const FontFamily = {
 };
 /* font sizes */
 export const FontSize = {
-  size_base: 16,
-  titleRegular_size: 14,
+  size_base: 18,
+  titleRegular_size: 16,
   size_5xl: 24,
-  labelBold_size: 12,
-  size_2xs: 11,
-  size_3xs: 10,
+  labelBold_size: 14,
+  size_2xs: 13,
+  size_3xs: 12,
 };
 /* Colors */
 export const Color = {

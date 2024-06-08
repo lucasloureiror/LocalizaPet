@@ -1,28 +1,53 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, Dimensions, Platform } from "react-native";
 import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
 
+const { width, height } = Dimensions.get('window');
+
 const Registro1 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
+  const clickVoltarHandler = () => {
+    navigation.goBack();
+  }
+
+  const clickInicioHandler = () => {
+    navigation.navigate("Onboarding");
+  }
+
+  const clickContinuarHandler = () => {
+    navigation.navigate("Registro2");
+  }
+
+  const clickEspeciePetHandler = () => {
+    
+  }
+
+  const clickTipoRegistroHandler = () => {
+
+  }
+
+  const clickDataRegistroHandler = () => {
+
+  }
+
+  const clickImagemPetHandler = () => {
+    
+  }
+
   return (
     <View style={styles.registro1}>
-      <View
-        style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}
-      >
+      <View style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}>
         <Text style={[styles.paraComearRegistre, styles.primaryButton1Typo]}>
           Para começar, registre o tipo de pet, se ele está desaparecido ou foi
           encontrado e adicione uma foto dele.
         </Text>
       </View>
       <View style={[styles.frameParent, styles.parentPosition]}>
-        <Pressable
-          style={styles.frame}
-          onPress={() => navigation.navigate("Registro2")}
-        >
+        <Pressable style={styles.frame} onPress={clickVoltarHandler}>
           <Image
             style={[styles.icon, styles.iconLayout]}
             contentFit="cover"
@@ -32,10 +57,7 @@ const Registro1 = () => {
         <View style={styles.wrapper}>
           <Text style={[styles.text, styles.textTypo]}>1/3</Text>
         </View>
-        <Pressable
-          style={styles.framePressable}
-          onPress={() => navigation.navigate("Desaparecidos")}
-        >
+        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
           <Image
             style={styles.iconLayout}
             contentFit="cover"
@@ -43,93 +65,70 @@ const Registro1 = () => {
           />
         </Pressable>
       </View>
-      <View style={styles.primaryButton}>
+      <Pressable style={styles.primaryButton} onPress={clickContinuarHandler}>
         <Text style={[styles.primaryButton1, styles.primaryButton1Typo]}>
           Continuar
         </Text>
-        <Image
-          style={[styles.heroiconsSolidarrowLongRig, styles.heroiconsLayout]}
-          contentFit="cover"
-          source={require("../../assets/heroiconssolidarrowlongright.png")}
-        />
-      </View>
+      </Pressable>
       <View style={[styles.inputField9Parent, styles.parentPosition]}>
         <View style={styles.inputField9}>
           <Text style={[styles.espcieDePet, styles.textTypo]}>
             Espécie de pet
           </Text>
-          <View
-            style={[styles.inputField9Inner, styles.inputField9InnerBorder]}
-          >
-            <View style={styles.frameGroup}>
-              <View style={styles.selectTypeOfPetWrapper}>
-                <Text style={[styles.selectTypeOf, styles.textTypo]}>
-                  Espécie
-                </Text>
-              </View>
-              <Image
+          <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickEspeciePetHandler}>
+            <Text style={[styles.selectTypeOf, styles.primaryButton1Typo]}>
+              Espécie
+            </Text>
+            <Image
                 style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
                 contentFit="cover"
                 source={require("../../assets/heroiconssolidplay.png")}
               />
-            </View>
-          </View>
+          </Pressable>
         </View>
         <View style={styles.inputField12}>
           <Text style={[styles.espcieDePet, styles.textTypo]}>
             Tipo de registro
           </Text>
-          <View
-            style={[styles.inputField9Inner, styles.inputField9InnerBorder]}
-          >
-            <View style={styles.frameGroup}>
-              <View style={styles.selectTypeOfPetWrapper}>
-                <Text style={[styles.selectTypeOf, styles.textTypo]}>
-                  Desaparecido ou encontrado
-                </Text>
-              </View>
-              <Image
+          <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickTipoRegistroHandler}>
+            <Text style={[styles.selectTypeOf, styles.primaryButton1Typo]}>
+              Desaparecido/Encontrado
+            </Text>
+            <Image
                 style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
                 contentFit="cover"
                 source={require("../../assets/heroiconssolidplay.png")}
               />
-            </View>
-          </View>
+          </Pressable>
         </View>
         <View style={styles.inputField12}>
-          <View style={styles.inputField11Inner}>
-            <View style={styles.frameView}>
-              <View style={styles.selectTypeOfPetWrapper}>
-                <Text style={[styles.selectTypeOf, styles.textTypo]}>
-                  Data de encontro ou desaparecimento
-                </Text>
-              </View>
+          <Text style={[styles.espcieDePet, styles.textTypo]}>
+            Data do registro
+          </Text>
+
+          <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickDataRegistroHandler}>
+            <Text style={[styles.selectTypeOf, styles.primaryButton1Typo]}>
+              Data de encontro/desaparecimento
+            </Text>
               <Image
-                style={[
-                  styles.heroiconsSolidcalendarDays,
-                  styles.heroiconsLayout,
-                ]}
+                style={[styles.heroiconsSolidcalendarDays, styles.heroiconsLayout]}
                 contentFit="cover"
                 source={require("../../assets/heroiconssolidcalendardays.png")}
               />
-            </View>
-          </View>
+          </Pressable>
         </View>
       </View>
-      <View style={styles.inputField91}>
-        <Text style={[styles.espcieDePet, styles.textTypo]}>Imagem do pet</Text>
-        <View
-          style={[
-            styles.heroiconsSoliduserCircleWrapper,
-            styles.inputField9InnerBorder,
-          ]}
-        >
+      <View style={[styles.inputField91]}>
+        <Text style={[styles.espcieDePet, styles.textTypo]}>
+          Imagem do pet
+        </Text>
+        <Pressable style={[styles.heroiconsSoliduserCircleWrapper, styles.inputField9InnerBorder]} onPress={clickImagemPetHandler}>
           <Image
             style={styles.heroiconsSoliduserCircle}
             contentFit="cover"
             source={require("../../assets/heroiconssolidusercircle.png")}
           />
-        </View>
+        </Pressable>
       </View>
     </View>
   );
@@ -141,11 +140,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   parentPosition: {
-    left: 20,
+    left: (width * 0.1)/2,
     position: "absolute",
   },
   primaryButton1Typo: {
-    textAlign: "left",
+    textAlign: "center",
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
   },
@@ -159,8 +158,8 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
   heroiconsLayout: {
-    height: 16,
-    width: 16,
+    height: 18,
+    width: 18,
   },
   inputField9InnerBorder: {
     marginTop: 4,
@@ -225,7 +224,7 @@ const styles = StyleSheet.create({
   },
   paraComearRegistreOTipoWrapper: {
     top: 102,
-    width: 390,
+    width: width * 0.9,
     flexDirection: "row",
   },
   icon: {
@@ -251,9 +250,9 @@ const styles = StyleSheet.create({
   },
   frameParent: {
     top: 60,
-    width: 390,
+    width: width * 0.9,
     justifyContent: "space-between",
-    flexDirection: "row",
+    flexDirection: "row"
   },
   primaryButton1: {
     fontWeight: "700",
@@ -265,15 +264,15 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   primaryButton: {
-    top: 854,
+    top: height * 0.85,
     backgroundColor: Color.neutral8,
-    height: 52,
+    height: 60,
     paddingHorizontal: Padding.p_13xl,
     paddingVertical: Padding.p_xl,
     justifyContent: "center",
     borderRadius: Border.br_xs,
-    width: 390,
-    left: 20,
+    width: width * 0.9,
+    left: (width * 0.1)/2,
     alignItems: "center",
     flexDirection: "row",
     position: "absolute",
@@ -289,6 +288,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.titleRegular_size,
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
+    width: width * 0.9
   },
   selectTypeOfPetWrapper: {
     justifyContent: "center",
@@ -298,8 +298,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   heroiconsSolidplay: {
-    top: 4,
-    left: 226,
+    top: 15,
+    right: width * 0.03,
     position: "absolute",
   },
   frameGroup: {
@@ -312,15 +312,15 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   inputField9: {
-    width: 390,
+    width: width * 0.9,
   },
   inputField12: {
     marginTop: 16,
-    width: 390,
+    width: width * 0.9,
   },
   heroiconsSolidcalendarDays: {
-    top: 3,
-    left: 309,
+    top: 15,
+    right: width * 0.03,
     position: "absolute",
     overflow: "hidden",
   },
@@ -355,10 +355,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   inputField91: {
-    top: 438,
-    left: 130,
-    width: 166,
-    height: 128,
+    top: 456,
+    width: width * 0.43,
+    left: (width * 0.57)/2,
+    height: 130,
+    justifyContent: "center",
+    alignItems: "center",
     position: "absolute",
   },
   registro1: {
