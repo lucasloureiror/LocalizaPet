@@ -40,12 +40,7 @@ const Registro1 = () => {
 
   return (
     <View style={styles.registro1}>
-      <View style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}>
-        <Text style={[styles.paraComearRegistre, styles.primaryButton1Typo]}>
-          Para começar, registre o tipo de pet, se ele está desaparecido ou foi
-          encontrado e adicione uma foto dele.
-        </Text>
-      </View>
+
       <View style={[styles.frameParent, styles.parentPosition]}>
         <Pressable style={styles.frame} onPress={clickVoltarHandler}>
           <Image
@@ -65,11 +60,14 @@ const Registro1 = () => {
           />
         </Pressable>
       </View>
-      <Pressable style={styles.primaryButton} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButton1, styles.primaryButton1Typo]}>
-          Continuar
+
+      <View style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}>
+        <Text style={[styles.paraComearRegistre, styles.primaryButton1Typo]}>
+          Para começar, registre o tipo de pet, se ele está desaparecido ou foi
+          encontrado e adicione uma foto dele.
         </Text>
-      </Pressable>
+      </View>
+
       <View style={[styles.inputField9Parent, styles.parentPosition]}>
         <View style={styles.inputField9}>
           <Text style={[styles.espcieDePet, styles.textTypo]}>
@@ -118,6 +116,7 @@ const Registro1 = () => {
           </Pressable>
         </View>
       </View>
+
       <View style={[styles.inputField91]}>
         <Text style={[styles.espcieDePet, styles.textTypo]}>
           Imagem do pet
@@ -130,6 +129,13 @@ const Registro1 = () => {
           />
         </Pressable>
       </View>
+
+      <Pressable style={styles.primaryButton} onPress={clickContinuarHandler}>
+        <Text style={[styles.primaryButton1, styles.primaryButton1Typo]}>
+          Continuar
+        </Text>
+      </Pressable>
+
     </View>
   );
 };

@@ -1,32 +1,33 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Border, Color, Padding } from "../GlobalStyles";
 
+const { width, height } = Dimensions.get('window');
+
 const Registro3 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
+  const clickVoltarHandler = () => {
+    navigation.goBack();
+  }
+
+  const clickInicioHandler = () => {
+    navigation.navigate("Onboarding");
+  }
+
+  const clickContinuarHandler = () => {
+    navigation.navigate("Desaparecidos");
+  }
+
   return (
     <View style={styles.registro3}>
-      
-      <View
-        style={[
-          styles.agoraDeixeSeuContatoParaAWrapper,
-          styles.primaryButtonPosition,
-        ]}
-      >
-        <Text style={[styles.agoraDeixeSeu, styles.agoraDeixeSeuTypo]}>
-          Agora deixe seu contato para auxiliar o encontro do pet ou do dono
-        </Text>
-      </View>
+
       <View style={[styles.registro3Inner, styles.primaryButtonPosition]}>
         <View style={[styles.frameParent, styles.phoneBarPosition]}>
-          <Pressable
-            style={styles.frame}
-            onPress={() => navigation.navigate("Registro2")}
-          >
+          <Pressable style={styles.frame} onPress={clickVoltarHandler}>
             <Image
               style={[styles.icon, styles.iconLayout]}
               contentFit="cover"
@@ -36,10 +37,7 @@ const Registro3 = () => {
           <View style={styles.wrapper}>
             <Text style={[styles.text, styles.textTypo]}>3/3</Text>
           </View>
-          <Pressable
-            style={styles.framePressable}
-            onPress={() => navigation.navigate("Desaparecidos")}
-          >
+          <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
             <Image
               style={styles.iconLayout}
               contentFit="cover"
@@ -48,16 +46,13 @@ const Registro3 = () => {
           </Pressable>
         </View>
       </View>
-      <View style={[styles.primaryButton, styles.frameViewFlexBox]}>
-        <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
-          Continuar
+      
+      <View style={[styles.agoraDeixeSeuContatoParaAWrapper, styles.primaryButtonPosition]}>
+        <Text style={[styles.agoraDeixeSeu, styles.agoraDeixeSeuTypo]}>
+          Agora deixe seu contato para auxiliar o encontro do pet ou do dono
         </Text>
-        <Image
-          style={styles.heroiconsSolidarrowLongRig}
-          contentFit="cover"
-          source={require("../../assets/heroiconssolidarrowlongright.png")}
-        />
       </View>
+
       <View style={[styles.inputField7Parent, styles.primaryButtonPosition]}>
         <View style={styles.inputField7}>
           <Text style={[styles.phoneNumber, styles.textTypo]}>E-mail</Text>
@@ -76,6 +71,13 @@ const Registro3 = () => {
           </View>
         </View>
       </View>
+
+      <Pressable style={[styles.primaryButton, styles.frameViewFlexBox]} onPress={clickContinuarHandler}>
+        <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
+          Continuar
+        </Text>
+      </Pressable>
+
     </View>
   );
 };
@@ -89,11 +91,11 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   primaryButtonPosition: {
-    left: 20,
+    left: (width * 0.1)/2,
     position: "absolute",
   },
   agoraDeixeSeuTypo: {
-    textAlign: "left",
+    textAlign: "center",
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
   },
@@ -157,11 +159,11 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.loraRegular,
     color: Color.neutral10,
     flex: 1,
-    textAlign: "left",
+    textAlign: "center",
   },
   agoraDeixeSeuContatoParaAWrapper: {
     top: 102,
-    width: 390,
+    width: width * 0.9,
     flexDirection: "row",
   },
   icon: {
@@ -174,11 +176,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: FontSize.size_5xl,
     lineHeight: 28,
-    width: 46,
     color: Color.neutral10,
   },
   wrapper: {
-    width: 37,
+    width: 49,
     flexDirection: "row",
   },
   framePressable: {
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
     width: 24,
   },
   frameParent: {
-    width: 390,
+    width: width * 0.9,
     justifyContent: "space-between",
     left: 0,
     top: 0,
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
   registro3Inner: {
     top: 60,
     height: 28,
-    width: 390,
+    width: width * 0.9,
   },
   primaryButton1: {
     fontWeight: "700",
@@ -208,15 +209,18 @@ const styles = StyleSheet.create({
     width: 16,
   },
   primaryButton: {
-    top: 854,
+    top: height * 0.85,
     backgroundColor: Color.neutral8,
-    height: 52,
-    justifyContent: "center",
+    height: 60,
     paddingHorizontal: Padding.p_13xl,
     paddingVertical: Padding.p_xl,
-    width: 390,
-    left: 20,
-    position: "absolute",
+    justifyContent: "center",
+    borderRadius: Border.br_xs,
+    width: width * 0.9,
+    left: (width * 0.1)/2,
+    alignItems: "center",
+    flexDirection: "row",
+    position: "absolute"
   },
   phoneNumber: {
     lineHeight: 18,

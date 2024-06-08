@@ -1,15 +1,57 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Color, FontFamily, FontSize, Padding, Border } from "../GlobalStyles";
 
+const { width, height } = Dimensions.get('window');
+
 const Registro2 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
+  const clickVoltarHandler = () => {
+    navigation.goBack();
+  }
+
+  const clickInicioHandler = () => {
+    navigation.navigate("Onboarding");
+  }
+
+  const clickContinuarHandler = () => {
+    navigation.navigate("Registro3");
+  }
+
   return (
     <View style={styles.registro2}>
+
+      <View style={[styles.frameGroup, styles.inputLayout]}>
+        <Pressable style={styles.frame1} onPress={clickVoltarHandler}>
+          <Image
+            style={[styles.icon, styles.iconLayout]}
+            contentFit="cover"
+            source={require("../../assets/frame.png")}
+          />
+        </Pressable>
+
+        <View style={styles.frameView}>
+          <Text style={[styles.text2, styles.text2Typo]}>2/3</Text>
+        </View>
+
+        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame-60134.png")}
+          />
+        </Pressable>
+      </View>
+
+      <View style={[styles.agoraPreenchaAIdentificaoWrapper, styles.inputLayout]}>
+        <Text style={[styles.agoraPreenchaA, styles.textTypo]}>
+          Agora preencha a identificação do Pet, cidade que foi encontrado/desapareceu e forneça mais detalhes que possam ajudar.
+        </Text>
+      </View>
   
       <View style={styles.inputField7Parent}>
         <View style={[styles.inputField7, styles.inputLayout]}>
@@ -60,47 +102,13 @@ const Registro2 = () => {
           </View>
         </View>
       </View>
-      <View
-        style={[styles.agoraPreenchaAIdentificaoWrapper, styles.inputLayout]}
-      >
-        <Text style={[styles.agoraPreenchaA, styles.textTypo]}>
-          Agora preencha a identificação do Pet, cidade que foi encontrado ou
-          desapareceu e forneça mais detalhes que possam ajudar
+
+      <Pressable style={[styles.primaryButton, styles.primaryButtonFlexBox]} onPress={clickContinuarHandler}>
+        <Text style={[styles.primaryButton1, styles.textTypo]}>
+          Continuar
         </Text>
-      </View>
-      <View style={[styles.frameGroup, styles.inputLayout]}>
-        <Pressable
-          style={styles.frame1}
-          onPress={() => navigation.navigate("Desaparecidos")}
-        >
-          <Image
-            style={[styles.icon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../../assets/frame.png")}
-          />
-        </Pressable>
-        <View style={styles.frameView}>
-          <Text style={[styles.text2, styles.text2Typo]}>2/3</Text>
-        </View>
-        <Pressable
-          style={styles.framePressable}
-          onPress={() => navigation.navigate("Desaparecidos")}
-        >
-          <Image
-            style={styles.iconLayout}
-            contentFit="cover"
-            source={require("../../assets/frame-60134.png")}
-          />
-        </Pressable>
-      </View>
-      <View style={[styles.primaryButton, styles.primaryButtonFlexBox]}>
-        <Text style={[styles.primaryButton1, styles.textTypo]}>Continuar</Text>
-        <Image
-          style={[styles.heroiconsSolidarrowLongRig, styles.heroiconsLayout]}
-          contentFit="cover"
-          source={require("../../assets/heroiconssolidarrowlongright.png")}
-        />
-      </View>
+      </Pressable>
+
     </View>
   );
 };
@@ -111,7 +119,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   inputLayout: {
-    width: 390,
+    width: width * 0.9,
     position: "absolute",
   },
   text2Typo: {
@@ -130,7 +138,7 @@ const styles = StyleSheet.create({
   textTypo: {
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
-    textAlign: "left",
+    textAlign: "center",
   },
   primaryButtonFlexBox: {
     justifyContent: "center",
@@ -284,7 +292,7 @@ const styles = StyleSheet.create({
   },
   agoraPreenchaAIdentificaoWrapper: {
     top: 102,
-    left: 20,
+    left: (width * 0.1)/2,
     flexDirection: "row",
   },
   icon: {
@@ -310,7 +318,7 @@ const styles = StyleSheet.create({
   },
   frameGroup: {
     top: 60,
-    left: 20,
+    left: (width * 0.1)/2,
     justifyContent: "space-between",
     flexDirection: "row",
   },
@@ -324,16 +332,18 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   primaryButton: {
-    top: 854,
+    top: height * 0.85,
     backgroundColor: Color.neutral8,
-    height: 52,
+    height: 60,
     paddingHorizontal: Padding.p_13xl,
     paddingVertical: Padding.p_xl,
-    borderRadius: Border.br_xs,
     justifyContent: "center",
-    width: 390,
-    left: 20,
+    borderRadius: Border.br_xs,
+    width: width * 0.9,
+    left: (width * 0.1)/2,
     alignItems: "center",
+    flexDirection: "row",
+    position: "absolute"
   },
   registro2: {
     height: 932,
