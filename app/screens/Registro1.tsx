@@ -4,19 +4,12 @@ import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
+import { Link } from "expo-router";
 
 const { width, height } = Dimensions.get('window');
 
 const Registro1 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
-
-  const clickVoltarHandler = () => {
-    navigation.goBack();
-  }
-
-  const clickInicioHandler = () => {
-    navigation.navigate("Onboarding");
-  }
 
   const clickContinuarHandler = () => {
     navigation.navigate("Registro2");
@@ -42,23 +35,20 @@ const Registro1 = () => {
     <View style={styles.registro1}>
 
       <View style={[styles.frameParent, styles.parentPosition]}>
-        <Pressable style={styles.frame} onPress={clickVoltarHandler}>
-          <Image
-            style={[styles.icon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../../assets/frame.png")}
-          />
-        </Pressable>
+        <View style={styles.frame}>
+        </View>
         <View style={styles.wrapper}>
           <Text style={[styles.text, styles.textTypo]}>1/3</Text>
         </View>
-        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
-          <Image
-            style={styles.iconLayout}
-            contentFit="cover"
-            source={require("../../assets/frame-60134.png")}
-          />
-        </Pressable>
+        <Link href={"/(tabs)/"} asChild>
+          <Pressable style={styles.framePressable}>
+            <Image
+              style={styles.iconLayout}
+              contentFit="cover"
+              source={require("../../assets/frame-60134.png")}
+            />
+          </Pressable>
+        </Link>
       </View>
 
       <View style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}>

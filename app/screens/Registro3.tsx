@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
+import { Link } from 'expo-router';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Border, Color, Padding } from "../GlobalStyles";
@@ -12,14 +13,6 @@ const Registro3 = () => {
 
   const clickVoltarHandler = () => {
     navigation.goBack();
-  }
-
-  const clickInicioHandler = () => {
-    navigation.navigate("Onboarding");
-  }
-
-  const clickContinuarHandler = () => {
-    navigation.navigate("Desaparecidos");
   }
 
   return (
@@ -37,13 +30,15 @@ const Registro3 = () => {
           <View style={styles.wrapper}>
             <Text style={[styles.text, styles.textTypo]}>3/3</Text>
           </View>
-          <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
-            <Image
-              style={styles.iconLayout}
-              contentFit="cover"
-              source={require("../../assets/frame-60134.png")}
-            />
-          </Pressable>
+          <Link href={"/(tabs)/"} asChild>
+            <Pressable style={styles.framePressable}>
+              <Image
+                style={styles.iconLayout}
+                contentFit="cover"
+                source={require("../../assets/frame-60134.png")}
+              />
+            </Pressable>
+          </Link>
         </View>
       </View>
       
@@ -72,11 +67,15 @@ const Registro3 = () => {
         </View>
       </View>
 
-      <Pressable style={[styles.primaryButton, styles.frameViewFlexBox]} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
-          Continuar
-        </Text>
-      </Pressable>
+      <View style={[styles.primaryButton, styles.frameViewFlexBox]}>
+        <Link href={"/(tabs)/"} asChild>
+          <Pressable>
+            <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
+              Finalizar
+            </Text>
+          </Pressable>
+        </Link>
+      </View>
 
     </View>
   );
