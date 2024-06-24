@@ -1,13 +1,7 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-import App from '../App';
+import Desaparecidos from "../screens/Desaparecidos";
 
-
-export default function HomeScreen() {
-  return (
-
-    <App/>
-    
-  );
+export default function HomeScreen(){
+    return(
+        <Desaparecidos/>
+    );
 }
-
-
