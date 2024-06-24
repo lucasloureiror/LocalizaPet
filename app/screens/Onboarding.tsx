@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, Dimensions, Pressable } from "react-native";
 import { Color, Padding, Border, FontSize, FontFamily } from "../GlobalStyles";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -10,9 +10,14 @@ const { width, height } = Dimensions.get('window');
 
 const Onboarding = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const router = useRouter();
 
   const clickRegistrarPetHandler = () => {
-    navigation.navigate("Registro1");
+    navigation.navigate("screens/Registro1")
+  }
+
+  const clickProcurarHandler = () => {
+    router.replace("(tabs)")
   }
 
   return (
@@ -43,13 +48,11 @@ const Onboarding = () => {
               </Pressable>
             </View>
             <View style={[styles.procurarWrapper, styles.wrapperFlexBox]}>
-              <Link href={"/(tabs)/"} asChild>
-                <Pressable>
-                  <Text style={[styles.procurar, styles.procurarTypo]}>
-                    Procurar
-                  </Text>
-                </Pressable>
-              </Link>
+              <Pressable onPress={clickProcurarHandler}>
+                <Text style={[styles.procurar, styles.procurarTypo]}>
+                  Procurar
+                </Text>
+              </Pressable>
             </View>
           </View>
         </View>

@@ -4,15 +4,20 @@ import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
-import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 
 const { width, height } = Dimensions.get('window');
 
 const Registro1 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const router = useRouter();
+
+  const clickInicioHandler = () => {
+    router.replace("(tabs)/")
+  }
 
   const clickContinuarHandler = () => {
-    navigation.navigate("Registro2");
+    navigation.navigate("screens/Registro2");
   }
 
   const clickEspeciePetHandler = () => {
@@ -40,15 +45,13 @@ const Registro1 = () => {
         <View style={styles.wrapper}>
           <Text style={[styles.text, styles.textTypo]}>1/3</Text>
         </View>
-        <Link href={"/(tabs)/"} asChild>
-          <Pressable style={styles.framePressable}>
-            <Image
-              style={styles.iconLayout}
-              contentFit="cover"
-              source={require("../../assets/frame-60134.png")}
-            />
-          </Pressable>
-        </Link>
+        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame-60134.png")}
+          />
+        </Pressable>
       </View>
 
       <View style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}>

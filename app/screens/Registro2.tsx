@@ -4,23 +4,24 @@ import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Color, FontFamily, FontSize, Padding, Border } from "../GlobalStyles";
-import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 
 const { width, height } = Dimensions.get('window');
 
 const Registro2 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const router = useRouter();
 
   const clickVoltarHandler = () => {
     navigation.goBack();
   }
 
   const clickInicioHandler = () => {
-    navigation.navigate("Onboarding");
+    router.replace("(tabs)/")
   }
 
   const clickContinuarHandler = () => {
-    navigation.navigate("Registro3");
+    navigation.navigate("screens/Registro3");
   }
 
   return (
@@ -39,15 +40,14 @@ const Registro2 = () => {
           <Text style={[styles.text2, styles.text2Typo]}>2/3</Text>
         </View>
 
-        <Link href={"/(tabs)/"} asChild>
-          <Pressable style={styles.framePressable}>
-            <Image
-              style={styles.iconLayout}
-              contentFit="cover"
-              source={require("../../assets/frame-60134.png")}
-            />
-          </Pressable>
-        </Link>
+        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame-60134.png")}
+          />
+        </Pressable>
+
       </View>
 
       <View style={[styles.agoraPreenchaAIdentificaoWrapper, styles.inputLayout]}>

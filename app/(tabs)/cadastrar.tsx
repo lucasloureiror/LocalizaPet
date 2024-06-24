@@ -1,7 +1,9 @@
-import Registro1 from "../screens/Registro1";
+import { useRouter } from "expo-router";
 
-export default function AddPetScreen(){
+export default function AddPetScreen(){    
+    const router = useRouter();
+
     return(
-        <Registro1/>
+        router.replace("/screens/Registro1")
     );
 }

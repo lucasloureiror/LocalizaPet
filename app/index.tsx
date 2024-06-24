@@ -1,7 +1,7 @@
-import App from './App';
+import Onboarding from './screens/Onboarding';
 
 export default function StartScreen() {
   return (
-    <App/>
+    <Onboarding/>
   );
 }
