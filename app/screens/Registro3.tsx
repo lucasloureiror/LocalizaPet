@@ -39,8 +39,8 @@ const Registro3 = () => {
         </Pressable>
 
         {/* Texto central */}
-        <View style={styles.textWrapper}>
-          <Text style={[styles.textSize, styles.textFont]}>3/3</Text>
+        <View style={styles.headerTextWrapper}>
+          <Text style={[styles.headerTextSize, styles.headerTextFont]}>3/3</Text>
         </View>
 
         {/* Botão de início */}
@@ -52,10 +52,11 @@ const Registro3 = () => {
           />
         </Pressable>
       </View>
-      
-      <View style={[styles.agoraDeixeSeuContatoParaAWrapper, styles.centralPosition]}>
-        <Text style={[styles.agoraDeixeSeu, styles.agoraDeixeSeuTypo]}>
-          Agora deixe seu contato para auxiliar o encontro do pet ou do dono
+
+      {/* Descrição do registro que será feito */}
+      <View style={[styles.descriptionWrapper, styles.centralPosition]}>
+        <Text style={[styles.descriptionTextSize, styles.descriptionTextFont]}>
+          Agora deixe seu contato para auxiliar o encontro do pet ou do dono.
         </Text>
       </View>
 
@@ -80,7 +81,7 @@ const Registro3 = () => {
 
       <View style={[styles.primaryButton, styles.frameViewFlexBox]}>
         <Pressable onPress={clickFinalizarHandler}>
-          <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
+          <Text style={[styles.primaryButton1, styles.descriptionTextSize]}>
             Finalizar
           </Text>
         </Pressable>
@@ -99,12 +100,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
 
-  headerWrapper: {
-    top: 60,
-    justifyContent: "space-between",
-    flexDirection: "row"
-  },
-
   centralPosition: {
     width: width * 0.9,
     left: (width * 0.1)/2,
@@ -121,30 +116,48 @@ const styles = StyleSheet.create({
     width: "100%"
   },
 
-  textWrapper: {
+  headerWrapper: {
+    top: 60,
+    justifyContent: "space-between",
+    flexDirection: "row"
+  },
+
+  headerTextWrapper: {
     width: 49,
     flexDirection: "row"
   },
 
-  textSize: {
+  headerTextSize: {
     fontSize: FontSize.size_5xl,
     lineHeight: 28,
     width: 55
   },
 
-  textFont: {
+  headerTextFont: {
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
     textAlign: "left",
     color: Color.neutral10
   },
 
-
-  agoraDeixeSeuTypo: {
-    textAlign: "center",
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
+  descriptionWrapper: {
+    top: 102,
+    flexDirection: "row"
   },
+
+  descriptionTextSize: {
+    fontSize: FontSize.titleRegular_size,
+    lineHeight: 21
+  },
+
+  descriptionTextFont: {
+    fontFamily: FontFamily.loraRegular,
+    textAlign: "center",
+    color: Color.neutral10,
+    flex: 1
+  },
+
+
   textTypo: {
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
@@ -196,17 +209,6 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     backgroundColor: Color.bgCOLOUR,
-  },
-  agoraDeixeSeu: {
-    fontFamily: FontFamily.loraRegular,
-    color: Color.neutral10,
-    flex: 1,
-    textAlign: "center",
-  },
-  agoraDeixeSeuContatoParaAWrapper: {
-    top: 102,
-    width: width * 0.9,
-    flexDirection: "row",
   },
   primaryButton1: {
     fontWeight: "700",

@@ -39,8 +39,8 @@ const Registro2 = () => {
         </Pressable>
 
         {/* Texto central */}
-        <View style={styles.textWrapper}>
-          <Text style={[styles.textSize, styles.textFont]}>2/3</Text>
+        <View style={styles.headerTextWrapper}>
+          <Text style={[styles.headerTextSize, styles.headerTextFont]}>2/3</Text>
         </View>
 
         {/* Botão de início */}
@@ -53,8 +53,9 @@ const Registro2 = () => {
         </Pressable>
       </View>
 
-      <View style={[styles.agoraPreenchaAIdentificaoWrapper, styles.inputLayout]}>
-        <Text style={[styles.agoraPreenchaA, styles.textTypo]}>
+      {/* Descrição do registro que será feito */}
+      <View style={[styles.descriptionWrapper, styles.centralPosition]}>
+        <Text style={[styles.descriptionTextSize, styles.descriptionTextFont]}>
           Agora preencha a identificação do Pet, cidade que foi encontrado/desapareceu e forneça mais detalhes que possam ajudar.
         </Text>
       </View>
@@ -65,7 +66,7 @@ const Registro2 = () => {
             Nome ou identificação - se existir
           </Text>
           <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.textTypo]}>Name......</Text>
+            <Text style={[styles.text, styles.descriptionTextSize]}>Name......</Text>
           </View>
         </View>
         <View style={[styles.inputField7, styles.inputLayout]}>
@@ -73,7 +74,7 @@ const Registro2 = () => {
             Nome ou identificação - se existir
           </Text>
           <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.textTypo]}>Nome</Text>
+            <Text style={[styles.text, styles.descriptionTextSize]}>Nome</Text>
           </View>
         </View>
         <Text style={[styles.nomeOuIdentificao, styles.text2Typo]}>
@@ -84,7 +85,7 @@ const Registro2 = () => {
             Forneça mais detalhes sobre o pet ou o local que foi encontrado
           </Text>
           <View style={[styles.detalhesWrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.textTypo]}>Detalhes</Text>
+            <Text style={[styles.text, styles.descriptionTextSize]}>Detalhes</Text>
           </View>
         </View>
         <View style={[styles.inputField12, styles.inputLayout]}>
@@ -97,7 +98,7 @@ const Registro2 = () => {
                   styles.primaryButtonFlexBox,
                 ]}
               >
-                <Text style={[styles.text, styles.textTypo]}>Cidade</Text>
+              <Text style={[styles.text, styles.descriptionTextSize]}>Cidade</Text>
               </View>
               <Image
                 style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
@@ -110,7 +111,7 @@ const Registro2 = () => {
       </View>
 
       <Pressable style={[styles.primaryButton, styles.primaryButtonFlexBox]} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButton1, styles.textTypo]}>
+        <Text style={[styles.primaryButton1, styles.descriptionTextSize]}>
           Continuar
         </Text>
       </Pressable>
@@ -126,12 +127,6 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: Color.bgCOLOUR,
     flex: 1
-  },
-
-  headerWrapper: {
-    top: 60,
-    justifyContent: "space-between",
-    flexDirection: "row"
   },
 
   centralPosition: {
@@ -150,22 +145,45 @@ const styles = StyleSheet.create({
     width: "100%"
   },
 
-  textWrapper: {
+  headerWrapper: {
+    top: 60,
+    justifyContent: "space-between",
+    flexDirection: "row"
+  },
+
+  headerTextWrapper: {
     width: 49,
     flexDirection: "row"
   },
 
-  textSize: {
+  headerTextSize: {
     fontSize: FontSize.size_5xl,
     lineHeight: 28,
     width: 55
   },
 
-  textFont: {
+  headerTextFont: {
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
     textAlign: "left",
     color: Color.neutral10
+  },
+
+  descriptionWrapper: {
+    top: 102,
+    flexDirection: "row"
+  },
+
+  descriptionTextSize: {
+    fontSize: FontSize.titleRegular_size,
+    lineHeight: 21
+  },
+
+  descriptionTextFont: {
+    fontFamily: FontFamily.loraRegular,
+    textAlign: "center",
+    color: Color.neutral10,
+    flex: 1
   },
 
 
@@ -189,11 +207,6 @@ const styles = StyleSheet.create({
     backgroundColor: Color.neutralVariant100,
     alignSelf: "stretch",
     flexDirection: "row",
-  },
-  textTypo: {
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
-    textAlign: "center",
   },
   primaryButtonFlexBox: {
     justifyContent: "center",
@@ -333,18 +346,6 @@ const styles = StyleSheet.create({
     height: 356,
     left: 20,
     position: "absolute",
-  },
-  agoraPreenchaA: {
-    fontFamily: FontFamily.loraRegular,
-    color: Color.neutral10,
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
-    flex: 1,
-  },
-  agoraPreenchaAIdentificaoWrapper: {
-    top: 102,
-    left: (width * 0.1)/2,
-    flexDirection: "row",
   },
   primaryButton1: {
     fontWeight: "700",

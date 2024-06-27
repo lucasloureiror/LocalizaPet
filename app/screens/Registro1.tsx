@@ -43,8 +43,8 @@ const Registro1 = () => {
         <View style={styles.iconFrame}></View>
 
         {/* Texto central */}
-        <View style={styles.textWrapper}>
-          <Text style={[styles.textSize, styles.textFont]}>1/3</Text>
+        <View style={styles.headerTextWrapper}>
+          <Text style={[styles.headerTextSize, styles.headerTextFont]}>1/3</Text>
         </View>
 
         {/* Botão de início */}
@@ -57,16 +57,16 @@ const Registro1 = () => {
         </Pressable>
       </View>
 
-      <View style={[styles.paraComearRegistreOTipoWrapper, styles.centralPosition]}>
-        <Text style={[styles.paraComearRegistre, styles.primaryButton1Typo]}>
-          Para começar, registre o tipo de pet, se ele está desaparecido ou foi
-          encontrado e adicione uma foto dele.
+      {/* Descrição do registro que será feito */}
+      <View style={[styles.descriptionWrapper, styles.centralPosition]}>
+        <Text style={[styles.descriptionTextSize, styles.descriptionTextFont]}>
+          Para começar, registre o tipo de pet, se ele está desaparecido ou foi encontrado e adicione uma foto dele.
         </Text>
       </View>
 
       <View style={[styles.inputField9Parent, styles.centralPosition]}>
         <View style={styles.inputField9}>
-          <Text style={[styles.espcieDePet, styles.textFont]}>
+          <Text style={[styles.espcieDePet, styles.headerTextFont]}>
             Espécie de pet
           </Text>
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickEspeciePetHandler}>
@@ -81,7 +81,7 @@ const Registro1 = () => {
           </Pressable>
         </View>
         <View style={styles.inputField12}>
-          <Text style={[styles.espcieDePet, styles.textFont]}>
+          <Text style={[styles.espcieDePet, styles.headerTextFont]}>
             Tipo de registro
           </Text>
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickTipoRegistroHandler}>
@@ -96,7 +96,7 @@ const Registro1 = () => {
           </Pressable>
         </View>
         <View style={styles.inputField12}>
-          <Text style={[styles.espcieDePet, styles.textFont]}>
+          <Text style={[styles.espcieDePet, styles.headerTextFont]}>
             Data do registro
           </Text>
 
@@ -114,7 +114,7 @@ const Registro1 = () => {
       </View>
 
       <View style={[styles.inputField91]}>
-        <Text style={[styles.espcieDePet, styles.textFont]}>
+        <Text style={[styles.espcieDePet, styles.headerTextFont]}>
           Imagem do pet
         </Text>
         <Pressable style={[styles.heroiconsSoliduserCircleWrapper, styles.inputField9InnerBorder]} onPress={clickImagemPetHandler}>
@@ -145,12 +145,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
 
-  headerWrapper: {
-    top: 60,
-    justifyContent: "space-between",
-    flexDirection: "row"
-  },
-
   centralPosition: {
     width: width * 0.9,
     left: (width * 0.1)/2,
@@ -167,22 +161,45 @@ const styles = StyleSheet.create({
     width: "100%"
   },
 
-  textWrapper: {
+  headerWrapper: {
+    top: 60,
+    justifyContent: "space-between",
+    flexDirection: "row"
+  },
+
+  headerTextWrapper: {
     width: 49,
     flexDirection: "row"
   },
 
-  textSize: {
+  headerTextSize: {
     fontSize: FontSize.size_5xl,
     lineHeight: 28,
     width: 55
   },
 
-  textFont: {
+  headerTextFont: {
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
     textAlign: "left",
     color: Color.neutral10
+  },
+
+  descriptionWrapper: {
+    top: 102,
+    flexDirection: "row"
+  },
+
+  descriptionTextSize: {
+    fontSize: FontSize.titleRegular_size,
+    lineHeight: 21
+  },
+
+  descriptionTextFont: {
+    fontFamily: FontFamily.loraRegular,
+    textAlign: "center",
+    color: Color.neutral10,
+    flex: 1
   },
 
 
@@ -255,20 +272,6 @@ const styles = StyleSheet.create({
     top: 0,
     position: "absolute",
     backgroundColor: Color.bgCOLOUR,
-  },
-  paraComearRegistre: {
-    fontFamily: FontFamily.loraRegular,
-    color: Color.neutral10,
-    flex: 1,
-    textAlign: "left",
-  },
-  paraComearRegistreOTipoWrapper: {
-    top: 102,
-    width: width * 0.9,
-    flexDirection: "row",
-  },
-  icon: {
-    overflow: "hidden",
   },
   primaryButton1: {
     fontWeight: "700",
