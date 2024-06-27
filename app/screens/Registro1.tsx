@@ -37,15 +37,18 @@ const Registro1 = () => {
   }
 
   return (
-    <View style={styles.registro1}>
+    <View style={styles.backgroud}>
+      {/* Cabeçalho da página */}
+      <View style={[styles.headerWrapper, styles.centralPosition]}>
+        <View style={styles.iconFrame}></View>
 
-      <View style={[styles.frameParent, styles.parentPosition]}>
-        <View style={styles.frame}>
+        {/* Texto central */}
+        <View style={styles.textWrapper}>
+          <Text style={[styles.textSize, styles.textFont]}>1/3</Text>
         </View>
-        <View style={styles.wrapper}>
-          <Text style={[styles.text, styles.textTypo]}>1/3</Text>
-        </View>
-        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
+
+        {/* Botão de início */}
+        <Pressable style={styles.iconFrame} onPress={clickInicioHandler}>
           <Image
             style={styles.iconLayout}
             contentFit="cover"
@@ -54,16 +57,16 @@ const Registro1 = () => {
         </Pressable>
       </View>
 
-      <View style={[styles.paraComearRegistreOTipoWrapper, styles.parentPosition]}>
+      <View style={[styles.paraComearRegistreOTipoWrapper, styles.centralPosition]}>
         <Text style={[styles.paraComearRegistre, styles.primaryButton1Typo]}>
           Para começar, registre o tipo de pet, se ele está desaparecido ou foi
           encontrado e adicione uma foto dele.
         </Text>
       </View>
 
-      <View style={[styles.inputField9Parent, styles.parentPosition]}>
+      <View style={[styles.inputField9Parent, styles.centralPosition]}>
         <View style={styles.inputField9}>
-          <Text style={[styles.espcieDePet, styles.textTypo]}>
+          <Text style={[styles.espcieDePet, styles.textFont]}>
             Espécie de pet
           </Text>
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickEspeciePetHandler}>
@@ -78,7 +81,7 @@ const Registro1 = () => {
           </Pressable>
         </View>
         <View style={styles.inputField12}>
-          <Text style={[styles.espcieDePet, styles.textTypo]}>
+          <Text style={[styles.espcieDePet, styles.textFont]}>
             Tipo de registro
           </Text>
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickTipoRegistroHandler}>
@@ -93,7 +96,7 @@ const Registro1 = () => {
           </Pressable>
         </View>
         <View style={styles.inputField12}>
-          <Text style={[styles.espcieDePet, styles.textTypo]}>
+          <Text style={[styles.espcieDePet, styles.textFont]}>
             Data do registro
           </Text>
 
@@ -111,7 +114,7 @@ const Registro1 = () => {
       </View>
 
       <View style={[styles.inputField91]}>
-        <Text style={[styles.espcieDePet, styles.textTypo]}>
+        <Text style={[styles.espcieDePet, styles.textFont]}>
           Imagem do pet
         </Text>
         <Pressable style={[styles.heroiconsSoliduserCircleWrapper, styles.inputField9InnerBorder]} onPress={clickImagemPetHandler}>
@@ -134,28 +137,66 @@ const Registro1 = () => {
 };
 
 const styles = StyleSheet.create({
+  backgroud: {
+    height: 932,
+    overflow: "hidden",
+    width: "100%",
+    backgroundColor: Color.bgCOLOUR,
+    flex: 1
+  },
+
+  headerWrapper: {
+    top: 60,
+    justifyContent: "space-between",
+    flexDirection: "row"
+  },
+
+  centralPosition: {
+    width: width * 0.9,
+    left: (width * 0.1)/2,
+    position: "absolute"
+  },
+
+  iconFrame: {
+    height: 24,
+    width: 24
+  },
+
+  iconLayout: {
+    height: "100%",
+    width: "100%"
+  },
+
+  textWrapper: {
+    width: 49,
+    flexDirection: "row"
+  },
+
+  textSize: {
+    fontSize: FontSize.size_5xl,
+    lineHeight: 28,
+    width: 55
+  },
+
+  textFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    textAlign: "left",
+    color: Color.neutral10
+  },
+
+
   phoneBarFlexBox: {
     justifyContent: "space-between",
     flexDirection: "row",
   },
-  parentPosition: {
-    left: (width * 0.1)/2,
-    position: "absolute",
-  },
+
   primaryButton1Typo: {
     textAlign: "center",
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
   },
-  iconLayout: {
-    height: "100%",
-    width: "100%",
-  },
-  textTypo: {
-    fontFamily: FontFamily.titleMedium1,
-    fontWeight: "500",
-    textAlign: "left",
-  },
+
   heroiconsLayout: {
     height: 18,
     width: 18,
@@ -228,30 +269,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     overflow: "hidden",
-  },
-  frame: {
-    height: 24,
-    width: 24,
-  },
-  text: {
-    fontSize: FontSize.size_5xl,
-    lineHeight: 28,
-    width: 55,
-    color: Color.neutral10,
-  },
-  wrapper: {
-    width: 37,
-    flexDirection: "row",
-  },
-  framePressable: {
-    height: 22,
-    width: 24,
-  },
-  frameParent: {
-    top: 60,
-    width: width * 0.9,
-    justifyContent: "space-between",
-    flexDirection: "row"
   },
   primaryButton1: {
     fontWeight: "700",
@@ -361,14 +378,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-  },
-  registro1: {
-    height: 932,
-    overflow: "hidden",
-    width: "100%",
-    backgroundColor: Color.bgCOLOUR,
-    flex: 1,
-  },
+  }
 });
 
 export default Registro1;

@@ -25,29 +25,32 @@ const Registro2 = () => {
   }
 
   return (
-    <View style={styles.registro2}>
+    <View style={styles.backgroud}>
 
-      <View style={[styles.frameGroup, styles.inputLayout]}>
-        <Pressable style={styles.frame1} onPress={clickVoltarHandler}>
+      {/* Cabeçalho da página */}
+      <View style={[styles.headerWrapper, styles.centralPosition]}>
+        {/* Botão de voltar */}
+        <Pressable style={styles.iconFrame} onPress={clickVoltarHandler}>
           <Image
-            style={[styles.icon, styles.iconLayout]}
+            style={styles.iconLayout}
             contentFit="cover"
             source={require("../../assets/frame.png")}
           />
         </Pressable>
 
-        <View style={styles.frameView}>
-          <Text style={[styles.text2, styles.text2Typo]}>2/3</Text>
+        {/* Texto central */}
+        <View style={styles.textWrapper}>
+          <Text style={[styles.textSize, styles.textFont]}>2/3</Text>
         </View>
 
-        <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
+        {/* Botão de início */}
+        <Pressable style={styles.iconFrame} onPress={clickInicioHandler}>
           <Image
             style={styles.iconLayout}
             contentFit="cover"
             source={require("../../assets/frame-60134.png")}
           />
         </Pressable>
-
       </View>
 
       <View style={[styles.agoraPreenchaAIdentificaoWrapper, styles.inputLayout]}>
@@ -117,6 +120,55 @@ const Registro2 = () => {
 };
 
 const styles = StyleSheet.create({
+  backgroud: {
+    height: 932,
+    overflow: "hidden",
+    width: "100%",
+    backgroundColor: Color.bgCOLOUR,
+    flex: 1
+  },
+
+  headerWrapper: {
+    top: 60,
+    justifyContent: "space-between",
+    flexDirection: "row"
+  },
+
+  centralPosition: {
+    width: width * 0.9,
+    left: (width * 0.1)/2,
+    position: "absolute"
+  },
+
+  iconFrame: {
+    height: 24,
+    width: 24
+  },
+
+  iconLayout: {
+    height: "100%",
+    width: "100%"
+  },
+
+  textWrapper: {
+    width: 49,
+    flexDirection: "row"
+  },
+
+  textSize: {
+    fontSize: FontSize.size_5xl,
+    lineHeight: 28,
+    width: 55
+  },
+
+  textFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    textAlign: "left",
+    color: Color.neutral10
+  },
+
+
   phoneBarFlexBox: {
     justifyContent: "space-between",
     flexDirection: "row",
@@ -151,10 +203,6 @@ const styles = StyleSheet.create({
   heroiconsLayout: {
     height: 16,
     width: 16,
-  },
-  iconLayout: {
-    height: "100%",
-    width: "100%",
   },
   time1: {
     letterSpacing: 0.1,
@@ -298,33 +346,6 @@ const styles = StyleSheet.create({
     left: (width * 0.1)/2,
     flexDirection: "row",
   },
-  icon: {
-    overflow: "hidden",
-  },
-  frame1: {
-    width: 24,
-    height: 24,
-  },
-  text2: {
-    fontSize: FontSize.size_5xl,
-    lineHeight: 28,
-    textAlign: "left",
-    flex: 1,
-  },
-  frameView: {
-    width: 49,
-    flexDirection: "row",
-  },
-  framePressable: {
-    height: 22,
-    width: 24,
-  },
-  frameGroup: {
-    top: 60,
-    left: (width * 0.1)/2,
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
   primaryButton1: {
     fontWeight: "700",
     fontFamily: FontFamily.loraBold,
@@ -348,13 +369,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     position: "absolute"
   },
-  registro2: {
-    height: 932,
-    overflow: "hidden",
-    width: "100%",
-    backgroundColor: Color.bgCOLOUR,
-    flex: 1,
-  },
+
 });
 
 export default Registro2;

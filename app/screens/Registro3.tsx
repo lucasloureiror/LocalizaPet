@@ -27,37 +27,39 @@ const Registro3 = () => {
   return (
     <View style={styles.registro3}>
 
-      <View style={[styles.registro3Inner, styles.primaryButtonPosition]}>
-        <View style={[styles.frameParent, styles.phoneBarPosition]}>
-          <Pressable style={styles.frame} onPress={clickVoltarHandler}>
-            <Image
-              style={[styles.icon, styles.iconLayout]}
-              contentFit="cover"
-              source={require("../../assets/frame.png")}
-            />
-          </Pressable>
-          <View style={styles.wrapper}>
-            <Text style={[styles.text, styles.textTypo]}>3/3</Text>
-          </View>
+      {/* Cabeçalho da página */}
+      <View style={[styles.headerWrapper, styles.centralPosition]}>
+        {/* Botão de voltar */}
+        <Pressable style={styles.iconFrame} onPress={clickVoltarHandler}>
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame.png")}
+          />
+        </Pressable>
 
-          <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
-            <Image
-              style={styles.iconLayout}
-              contentFit="cover"
-              source={require("../../assets/frame-60134.png")}
-            />
-          </Pressable>
-
+        {/* Texto central */}
+        <View style={styles.textWrapper}>
+          <Text style={[styles.textSize, styles.textFont]}>3/3</Text>
         </View>
+
+        {/* Botão de início */}
+        <Pressable style={styles.iconFrame} onPress={clickInicioHandler}>
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame-60134.png")}
+          />
+        </Pressable>
       </View>
       
-      <View style={[styles.agoraDeixeSeuContatoParaAWrapper, styles.primaryButtonPosition]}>
+      <View style={[styles.agoraDeixeSeuContatoParaAWrapper, styles.centralPosition]}>
         <Text style={[styles.agoraDeixeSeu, styles.agoraDeixeSeuTypo]}>
           Agora deixe seu contato para auxiliar o encontro do pet ou do dono
         </Text>
       </View>
 
-      <View style={[styles.inputField7Parent, styles.primaryButtonPosition]}>
+      <View style={[styles.inputField7Parent, styles.centralPosition]}>
         <View style={styles.inputField7}>
           <Text style={[styles.phoneNumber, styles.textTypo]}>E-mail</Text>
           <View style={[styles.frameView, styles.frameViewFlexBox]}>
@@ -89,25 +91,59 @@ const Registro3 = () => {
 };
 
 const styles = StyleSheet.create({
-  phoneBarPosition: {
+  backgroud: {
+    height: 932,
+    overflow: "hidden",
+    width: "100%",
+    backgroundColor: Color.bgCOLOUR,
+    flex: 1
+  },
+
+  headerWrapper: {
+    top: 60,
     justifyContent: "space-between",
-    left: 0,
-    top: 0,
-    flexDirection: "row",
-    position: "absolute",
+    flexDirection: "row"
   },
-  primaryButtonPosition: {
+
+  centralPosition: {
+    width: width * 0.9,
     left: (width * 0.1)/2,
-    position: "absolute",
+    position: "absolute"
   },
+
+  iconFrame: {
+    height: 24,
+    width: 24
+  },
+
+  iconLayout: {
+    height: "100%",
+    width: "100%"
+  },
+
+  textWrapper: {
+    width: 49,
+    flexDirection: "row"
+  },
+
+  textSize: {
+    fontSize: FontSize.size_5xl,
+    lineHeight: 28,
+    width: 55
+  },
+
+  textFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    textAlign: "left",
+    color: Color.neutral10
+  },
+
+
   agoraDeixeSeuTypo: {
     textAlign: "center",
     lineHeight: 21,
     fontSize: FontSize.titleRegular_size,
-  },
-  iconLayout: {
-    height: "100%",
-    width: "100%",
   },
   textTypo: {
     fontFamily: FontFamily.titleMedium1,
@@ -171,37 +207,6 @@ const styles = StyleSheet.create({
     top: 102,
     width: width * 0.9,
     flexDirection: "row",
-  },
-  icon: {
-    overflow: "hidden",
-  },
-  frame: {
-    height: 24,
-    width: 24,
-  },
-  text: {
-    fontSize: FontSize.size_5xl,
-    lineHeight: 28,
-    color: Color.neutral10,
-  },
-  wrapper: {
-    width: 49,
-    flexDirection: "row",
-  },
-  framePressable: {
-    height: 22,
-    width: 24,
-  },
-  frameParent: {
-    width: width * 0.9,
-    justifyContent: "space-between",
-    left: 0,
-    top: 0,
-  },
-  registro3Inner: {
-    top: 60,
-    height: 28,
-    width: width * 0.9,
   },
   primaryButton1: {
     fontWeight: "700",
