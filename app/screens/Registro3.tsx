@@ -55,7 +55,7 @@ const Registro3 = () => {
 
       {/* Descrição do registro que será feito */}
       <View style={[styles.descriptionWrapper, styles.centralPosition]}>
-        <Text style={[styles.descriptionTextSize, styles.descriptionTextFont]}>
+        <Text style={[styles.regularTextSize, styles.descriptionTextFont]}>
           Agora deixe seu contato para auxiliar o encontro do pet ou do dono.
         </Text>
       </View>
@@ -79,13 +79,12 @@ const Registro3 = () => {
         </View>
       </View>
 
-      <View style={[styles.primaryButton, styles.frameViewFlexBox]}>
-        <Pressable onPress={clickFinalizarHandler}>
-          <Text style={[styles.primaryButton1, styles.descriptionTextSize]}>
-            Finalizar
-          </Text>
-        </Pressable>
-      </View>
+      {/* Botão para finalizar */}
+      <Pressable style={[styles.primaryButtonLayout, styles.centralPosition]} onPress={clickFinalizarHandler}>
+        <Text style={[styles.primaryButtonFont, styles.regularTextSize]}>
+          Finalizar
+        </Text>
+      </Pressable>
 
     </View>
   );
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 
-  descriptionTextSize: {
+  regularTextSize: {
     fontSize: FontSize.titleRegular_size,
     lineHeight: 21
   },
@@ -155,6 +154,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: Color.neutral10,
     flex: 1
+  },
+
+  primaryButtonLayout: {
+    top: height * 0.90,
+    backgroundColor: Color.neutral8,
+    height: 60,
+    paddingHorizontal: Padding.p_13xl,
+    paddingVertical: Padding.p_xl,
+    borderRadius: Border.br_xs,
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+
+  primaryButtonFont: {
+    fontFamily: FontFamily.loraBold,
+    fontWeight: "700",
+    color: Color.neutralVariant100
   },
 
 
@@ -210,30 +226,11 @@ const styles = StyleSheet.create({
     top: 0,
     backgroundColor: Color.bgCOLOUR,
   },
-  primaryButton1: {
-    fontWeight: "700",
-    fontFamily: FontFamily.loraBold,
-    color: Color.neutralVariant100,
-  },
   heroiconsSolidarrowLongRig: {
     height: 16,
     display: "none",
     marginLeft: 8,
     width: 16,
-  },
-  primaryButton: {
-    top: height * 0.85,
-    backgroundColor: Color.neutral8,
-    height: 60,
-    paddingHorizontal: Padding.p_13xl,
-    paddingVertical: Padding.p_xl,
-    justifyContent: "center",
-    borderRadius: Border.br_xs,
-    width: width * 0.9,
-    left: (width * 0.1)/2,
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute"
   },
   phoneNumber: {
     lineHeight: 18,

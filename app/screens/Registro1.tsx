@@ -59,7 +59,7 @@ const Registro1 = () => {
 
       {/* Descrição do registro que será feito */}
       <View style={[styles.descriptionWrapper, styles.centralPosition]}>
-        <Text style={[styles.descriptionTextSize, styles.descriptionTextFont]}>
+        <Text style={[styles.regularTextSize, styles.descriptionTextFont]}>
           Para começar, registre o tipo de pet, se ele está desaparecido ou foi encontrado e adicione uma foto dele.
         </Text>
       </View>
@@ -70,7 +70,7 @@ const Registro1 = () => {
             Espécie de pet
           </Text>
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickEspeciePetHandler}>
-            <Text style={[styles.selectTypeOf, styles.primaryButton1Typo]}>
+            <Text style={[styles.selectTypeOf, styles.regularTextSize]}>
               Espécie
             </Text>
             <Image
@@ -85,7 +85,7 @@ const Registro1 = () => {
             Tipo de registro
           </Text>
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickTipoRegistroHandler}>
-            <Text style={[styles.selectTypeOf, styles.primaryButton1Typo]}>
+            <Text style={[styles.selectTypeOf, styles.regularTextSize]}>
               Desaparecido/Encontrado
             </Text>
             <Image
@@ -101,7 +101,7 @@ const Registro1 = () => {
           </Text>
 
           <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickDataRegistroHandler}>
-            <Text style={[styles.selectTypeOf, styles.primaryButton1Typo]}>
+            <Text style={[styles.selectTypeOf, styles.regularTextSize]}>
               Data de encontro/desaparecimento
             </Text>
               <Image
@@ -126,8 +126,9 @@ const Registro1 = () => {
         </Pressable>
       </View>
 
-      <Pressable style={styles.primaryButton} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButton1, styles.primaryButton1Typo]}>
+      {/* Botão para continuar */}
+      <Pressable style={[styles.primaryButtonLayout, styles.centralPosition]} onPress={clickContinuarHandler}>
+        <Text style={[styles.primaryButtonFont, styles.regularTextSize]}>
           Continuar
         </Text>
       </Pressable>
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 
-  descriptionTextSize: {
+  regularTextSize: {
     fontSize: FontSize.titleRegular_size,
     lineHeight: 21
   },
@@ -202,16 +203,27 @@ const styles = StyleSheet.create({
     flex: 1
   },
 
+  primaryButtonLayout: {
+    top: height * 0.90,
+    backgroundColor: Color.neutral8,
+    height: 60,
+    paddingHorizontal: Padding.p_13xl,
+    paddingVertical: Padding.p_xl,
+    borderRadius: Border.br_xs,
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+
+  primaryButtonFont: {
+    fontFamily: FontFamily.loraBold,
+    fontWeight: "700",
+    color: Color.neutralVariant100
+  },
+
 
   phoneBarFlexBox: {
     justifyContent: "space-between",
     flexDirection: "row",
-  },
-
-  primaryButton1Typo: {
-    textAlign: "center",
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
   },
 
   heroiconsLayout: {
@@ -282,20 +294,6 @@ const styles = StyleSheet.create({
     display: "none",
     marginLeft: 8,
   },
-  primaryButton: {
-    top: height * 0.85,
-    backgroundColor: Color.neutral8,
-    height: 60,
-    paddingHorizontal: Padding.p_13xl,
-    paddingVertical: Padding.p_xl,
-    justifyContent: "center",
-    borderRadius: Border.br_xs,
-    width: width * 0.9,
-    left: (width * 0.1)/2,
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute",
-  },
   espcieDePet: {
     lineHeight: 18,
     color: Color.neutral10,
@@ -307,7 +305,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.titleRegular_size,
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
-    width: width * 0.9
+    width: width * 0.9,
   },
   selectTypeOfPetWrapper: {
     justifyContent: "center",

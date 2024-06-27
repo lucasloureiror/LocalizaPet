@@ -55,7 +55,7 @@ const Registro2 = () => {
 
       {/* Descrição do registro que será feito */}
       <View style={[styles.descriptionWrapper, styles.centralPosition]}>
-        <Text style={[styles.descriptionTextSize, styles.descriptionTextFont]}>
+        <Text style={[styles.regularTextSize, styles.descriptionTextFont]}>
           Agora preencha a identificação do Pet, cidade que foi encontrado/desapareceu e forneça mais detalhes que possam ajudar.
         </Text>
       </View>
@@ -66,7 +66,7 @@ const Registro2 = () => {
             Nome ou identificação - se existir
           </Text>
           <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.descriptionTextSize]}>Name......</Text>
+            <Text style={[styles.text, styles.regularTextSize]}>Name......</Text>
           </View>
         </View>
         <View style={[styles.inputField7, styles.inputLayout]}>
@@ -74,7 +74,7 @@ const Registro2 = () => {
             Nome ou identificação - se existir
           </Text>
           <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.descriptionTextSize]}>Nome</Text>
+            <Text style={[styles.text, styles.regularTextSize]}>Nome</Text>
           </View>
         </View>
         <Text style={[styles.nomeOuIdentificao, styles.text2Typo]}>
@@ -85,7 +85,7 @@ const Registro2 = () => {
             Forneça mais detalhes sobre o pet ou o local que foi encontrado
           </Text>
           <View style={[styles.detalhesWrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.descriptionTextSize]}>Detalhes</Text>
+            <Text style={[styles.text, styles.regularTextSize]}>Detalhes</Text>
           </View>
         </View>
         <View style={[styles.inputField12, styles.inputLayout]}>
@@ -98,7 +98,7 @@ const Registro2 = () => {
                   styles.primaryButtonFlexBox,
                 ]}
               >
-              <Text style={[styles.text, styles.descriptionTextSize]}>Cidade</Text>
+              <Text style={[styles.text, styles.regularTextSize]}>Cidade</Text>
               </View>
               <Image
                 style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
@@ -110,8 +110,9 @@ const Registro2 = () => {
         </View>
       </View>
 
-      <Pressable style={[styles.primaryButton, styles.primaryButtonFlexBox]} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButton1, styles.descriptionTextSize]}>
+      {/* Botão para continuar */}
+      <Pressable style={[styles.primaryButtonLayout, styles.centralPosition]} onPress={clickContinuarHandler}>
+        <Text style={[styles.primaryButtonFont, styles.regularTextSize]}>
           Continuar
         </Text>
       </Pressable>
@@ -174,7 +175,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 
-  descriptionTextSize: {
+  regularTextSize: {
     fontSize: FontSize.titleRegular_size,
     lineHeight: 21
   },
@@ -184,6 +185,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: Color.neutral10,
     flex: 1
+  },
+
+  primaryButtonLayout: {
+    top: height * 0.90,
+    backgroundColor: Color.neutral8,
+    height: 60,
+    paddingHorizontal: Padding.p_13xl,
+    paddingVertical: Padding.p_xl,
+    borderRadius: Border.br_xs,
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+
+  primaryButtonFont: {
+    fontFamily: FontFamily.loraBold,
+    fontWeight: "700",
+    color: Color.neutralVariant100
   },
 
 
@@ -347,28 +365,9 @@ const styles = StyleSheet.create({
     left: 20,
     position: "absolute",
   },
-  primaryButton1: {
-    fontWeight: "700",
-    fontFamily: FontFamily.loraBold,
-    color: Color.neutralVariant100,
-  },
   heroiconsSolidarrowLongRig: {
     display: "none",
     marginLeft: 8,
-  },
-  primaryButton: {
-    top: height * 0.85,
-    backgroundColor: Color.neutral8,
-    height: 60,
-    paddingHorizontal: Padding.p_13xl,
-    paddingVertical: Padding.p_xl,
-    justifyContent: "center",
-    borderRadius: Border.br_xs,
-    width: width * 0.9,
-    left: (width * 0.1)/2,
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute"
   },
 
 });
