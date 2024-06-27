@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
+import { useRouter } from 'expo-router';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Border, Color, Padding } from "../GlobalStyles";
@@ -9,17 +10,18 @@ const { width, height } = Dimensions.get('window');
 
 const Registro3 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const router = useRouter();
 
   const clickVoltarHandler = () => {
     navigation.goBack();
   }
 
   const clickInicioHandler = () => {
-    navigation.navigate("Onboarding");
+    router.replace("(tabs)/")
   }
 
-  const clickContinuarHandler = () => {
-    navigation.navigate("Desaparecidos");
+  const clickFinalizarHandler = () => {
+    router.replace("(tabs)/")
   }
 
   return (
@@ -37,6 +39,7 @@ const Registro3 = () => {
           <View style={styles.wrapper}>
             <Text style={[styles.text, styles.textTypo]}>3/3</Text>
           </View>
+
           <Pressable style={styles.framePressable} onPress={clickInicioHandler}>
             <Image
               style={styles.iconLayout}
@@ -44,6 +47,7 @@ const Registro3 = () => {
               source={require("../../assets/frame-60134.png")}
             />
           </Pressable>
+
         </View>
       </View>
       
@@ -72,11 +76,13 @@ const Registro3 = () => {
         </View>
       </View>
 
-      <Pressable style={[styles.primaryButton, styles.frameViewFlexBox]} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
-          Continuar
-        </Text>
-      </Pressable>
+      <View style={[styles.primaryButton, styles.frameViewFlexBox]}>
+        <Pressable onPress={clickFinalizarHandler}>
+          <Text style={[styles.primaryButton1, styles.agoraDeixeSeuTypo]}>
+            Finalizar
+          </Text>
+        </Pressable>
+      </View>
 
     </View>
   );

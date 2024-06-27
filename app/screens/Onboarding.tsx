@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Image } from "expo-image";
+import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, Dimensions, Pressable } from "react-native";
 import { Color, Padding, Border, FontSize, FontFamily } from "../GlobalStyles";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -9,13 +10,14 @@ const { width, height } = Dimensions.get('window');
 
 const Onboarding = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const router = useRouter();
 
   const clickRegistrarPetHandler = () => {
-    navigation.navigate("Registro1");
+    navigation.navigate("screens/Registro1")
   }
 
   const clickProcurarHandler = () => {
-    navigation.navigate("Desaparecidos");
+    router.replace("(tabs)")
   }
 
   return (

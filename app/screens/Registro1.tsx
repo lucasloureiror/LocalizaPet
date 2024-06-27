@@ -4,22 +4,20 @@ import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
+import { useRouter } from "expo-router";
 
 const { width, height } = Dimensions.get('window');
 
 const Registro1 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
-
-  const clickVoltarHandler = () => {
-    navigation.goBack();
-  }
+  const router = useRouter();
 
   const clickInicioHandler = () => {
-    navigation.navigate("Onboarding");
+    router.replace("(tabs)/")
   }
 
   const clickContinuarHandler = () => {
-    navigation.navigate("Registro2");
+    navigation.navigate("screens/Registro2");
   }
 
   const clickEspeciePetHandler = () => {
@@ -42,13 +40,8 @@ const Registro1 = () => {
     <View style={styles.registro1}>
 
       <View style={[styles.frameParent, styles.parentPosition]}>
-        <Pressable style={styles.frame} onPress={clickVoltarHandler}>
-          <Image
-            style={[styles.icon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../../assets/frame.png")}
-          />
-        </Pressable>
+        <View style={styles.frame}>
+        </View>
         <View style={styles.wrapper}>
           <Text style={[styles.text, styles.textTypo]}>1/3</Text>
         </View>
