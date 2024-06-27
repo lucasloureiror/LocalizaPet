@@ -64,71 +64,79 @@ const Registro1 = () => {
         </Text>
       </View>
 
-      <View style={[styles.inputField9Parent, styles.centralPosition]}>
-        <View style={styles.inputField9}>
-          <Text style={[styles.espcieDePet, styles.headerTextFont]}>
+      {/* Seção dos campos que recebem input do usuário */}
+      <View style={[styles.inputFieldWrapper, styles.centralPosition]}>
+        {/* Campo 'Espécie de Pet' */}
+        <View>
+          <Text style={styles.labelTextLayout}>
             Espécie de pet
           </Text>
-          <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickEspeciePetHandler}>
-            <Text style={[styles.selectTypeOf, styles.regularTextSize]}>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickEspeciePetHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
               Espécie
             </Text>
             <Image
-                style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
+                style={[styles.inputFieldIconFrame, styles.inputFieldIconPosition]}
                 contentFit="cover"
                 source={require("../../assets/heroiconssolidplay.png")}
               />
           </Pressable>
         </View>
-        <View style={styles.inputField12}>
-          <Text style={[styles.espcieDePet, styles.headerTextFont]}>
+
+        {/* Campo 'Tipo de registro' */}
+        <View style={styles.inputFieldMarginTop}>
+          <Text style={styles.labelTextLayout}>
             Tipo de registro
           </Text>
-          <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickTipoRegistroHandler}>
-            <Text style={[styles.selectTypeOf, styles.regularTextSize]}>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickTipoRegistroHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
               Desaparecido/Encontrado
             </Text>
             <Image
-                style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
+                style={[styles.inputFieldIconFrame, styles.inputFieldIconPosition]}
                 contentFit="cover"
                 source={require("../../assets/heroiconssolidplay.png")}
               />
           </Pressable>
         </View>
-        <View style={styles.inputField12}>
-          <Text style={[styles.espcieDePet, styles.headerTextFont]}>
+
+        {/* Campo 'Data do registro' */}
+        <View style={styles.inputFieldMarginTop}>
+          <Text style={styles.labelTextLayout}>
             Data do registro
           </Text>
 
-          <Pressable style={[styles.inputField9Inner, styles.inputField9InnerBorder]} onPress={clickDataRegistroHandler}>
-            <Text style={[styles.selectTypeOf, styles.regularTextSize]}>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickDataRegistroHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
               Data de encontro/desaparecimento
             </Text>
               <Image
-                style={[styles.heroiconsSolidcalendarDays, styles.heroiconsLayout]}
+                style={[styles.inputFieldIconFrame, styles.inputFieldIconPosition]}
                 contentFit="cover"
                 source={require("../../assets/heroiconssolidcalendardays.png")}
               />
           </Pressable>
         </View>
-      </View>
 
-      <View style={[styles.inputField91]}>
-        <Text style={[styles.espcieDePet, styles.headerTextFont]}>
-          Imagem do pet
-        </Text>
-        <Pressable style={[styles.heroiconsSoliduserCircleWrapper, styles.inputField9InnerBorder]} onPress={clickImagemPetHandler}>
-          <Image
-            style={styles.heroiconsSoliduserCircle}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidusercircle.png")}
-          />
-        </Pressable>
+        {/* Campo 'Imagem do pet' */}
+        <View style={[styles.inputFieldMarginTop, styles.inputFieldCenterLayout]}>
+          <Text style={[styles.labelTextLayout]}>
+            Imagem do pet
+          </Text>
+          <Pressable style={[styles.inputButtonLayout, styles.inputImageLayout]}>
+              <Image
+                style={styles.inputImageIconLayout}
+                contentFit="cover"
+                source={require("../../assets/heroiconssolidusercircle.png")}
+              />
+          </Pressable>
+        </View>
+        
       </View>
 
       {/* Botão para continuar */}
       <Pressable style={[styles.primaryButtonLayout, styles.centralPosition]} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButtonFont, styles.regularTextSize]}>
+        <Text style={[styles.primaryButtonTextFont, styles.regularTextSize]}>
           Continuar
         </Text>
       </Pressable>
@@ -214,172 +222,81 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 
-  primaryButtonFont: {
+  primaryButtonTextFont: {
     fontFamily: FontFamily.loraBold,
     fontWeight: "700",
     color: Color.neutralVariant100
   },
 
-
-  phoneBarFlexBox: {
-    justifyContent: "space-between",
-    flexDirection: "row",
+  inputFieldWrapper: {
+    top: 190,
+    height: 440
   },
 
-  heroiconsLayout: {
-    height: 18,
-    width: 18,
+  inputFieldMarginTop: {
+    marginTop: 15
   },
-  inputField9InnerBorder: {
-    marginTop: 4,
-    padding: Padding.p_xs,
-    borderWidth: 0.3,
-    borderColor: Color.colorDarkgray_100,
-    borderStyle: "solid",
-    backgroundColor: Color.neutralVariant100,
-    alignSelf: "stretch",
-    borderRadius: Border.br_xs,
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  time1: {
-    letterSpacing: 0.1,
-    lineHeight: 16,
-    fontWeight: "600",
-    fontFamily: FontFamily.labelBold,
-    color: Color.colorGray_100,
-    textAlign: "center",
+
+  labelTextLayout: {
     fontSize: FontSize.labelBold_size,
-  },
-  time: {
-    flexDirection: "row",
-  },
-  batteryIcon: {
-    marginTop: -5.75,
-    top: "50%",
-    right: 0,
-    width: 25,
-    height: 12,
-    position: "absolute",
-  },
-  combinedShapeIcon: {
-    height: 11,
-    width: 16,
-  },
-  wiFiIcon: {
-    width: 15,
-    height: 11,
-  },
-  container: {
-    width: 67,
-    height: 12,
-  },
-  phoneBar: {
-    width: 430,
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: Padding.p_base,
-    alignItems: "center",
-    justifyContent: "space-between",
-    left: 0,
-    top: 0,
-    position: "absolute",
-    backgroundColor: Color.bgCOLOUR,
-  },
-  primaryButton1: {
-    fontWeight: "700",
-    fontFamily: FontFamily.loraBold,
-    color: Color.neutralVariant100,
-  },
-  heroiconsSolidarrowLongRig: {
-    display: "none",
-    marginLeft: 8,
-  },
-  espcieDePet: {
     lineHeight: 18,
-    color: Color.neutral10,
-    fontSize: FontSize.labelBold_size,
-  },
-  selectTypeOf: {
-    color: Color.neutral3,
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
-    width: width * 0.9,
+    color: Color.neutral10,
+    marginBottom: 4
   },
-  selectTypeOfPetWrapper: {
-    justifyContent: "center",
-    flexDirection: "row",
-    left: 0,
-    top: 0,
-    position: "absolute",
-  },
-  heroiconsSolidplay: {
-    top: 15,
-    right: width * 0.03,
-    position: "absolute",
-  },
-  frameGroup: {
-    width: 242,
-    height: 24,
-  },
-  inputField9Inner: {
-    justifyContent: "flex-end",
-    height: 48,
+
+  inputButtonLayout: {
     marginTop: 4,
-  },
-  inputField9: {
-    width: width * 0.9,
-  },
-  inputField12: {
-    marginTop: 16,
-    width: width * 0.9,
-  },
-  heroiconsSolidcalendarDays: {
-    top: 15,
-    right: width * 0.03,
-    position: "absolute",
-    overflow: "hidden",
-  },
-  frameView: {
-    width: 325,
-    height: 21,
-  },
-  inputField11Inner: {
     padding: Padding.p_xs,
     borderWidth: 0.3,
-    borderColor: Color.colorDarkgray_100,
     borderStyle: "solid",
+    borderRadius: Border.br_xs,
+    borderColor: Color.colorDarkgray_100,
     backgroundColor: Color.neutralVariant100,
     alignSelf: "stretch",
-    justifyContent: "flex-end",
-    height: 48,
-    borderRadius: Border.br_xs,
     alignItems: "center",
-    flexDirection: "row",
+    flexDirection: "row"
   },
-  inputField9Parent: {
-    top: 190,
-    height: 440,
+
+  inputFieldLayout: {
+    justifyContent: "flex-start"
   },
-  heroiconsSoliduserCircle: {
+
+  inputFieldTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    color: Color.neutral3
+  },
+
+  inputFieldIconFrame: {
+    height: 18,
+    width: 18
+  },
+
+  inputFieldIconPosition: {
+    top: 15,
+    right: width * 0.03,
+    position: "absolute"
+  },
+
+  inputFieldCenterLayout: {
+    width: width * 0.40,
+    left: (width * 0.50)/2,
+    alignItems: "center"
+  },
+
+  inputImageLayout: {
+    height: 130,
+    justifyContent: "center"
+  },
+
+  inputImageIconLayout: {
     width: 84,
     height: 84,
-    overflow: "hidden",
+    overflow: "hidden"
   },
-  heroiconsSoliduserCircleWrapper: {
-    height: 106,
-    justifyContent: "center",
-  },
-  inputField91: {
-    top: 456,
-    width: width * 0.43,
-    left: (width * 0.57)/2,
-    height: 130,
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-  }
+
 });
 
 export default Registro1;
