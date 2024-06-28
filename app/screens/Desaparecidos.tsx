@@ -1,15 +1,77 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Padding, Color, Border, FontFamily, FontSize } from "../GlobalStyles";
 
+const { width, height } = Dimensions.get('window');
+
 const Desaparecidos = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   return (
-    <View style={styles.desaparecidos}>
+    <View style={styles.background}>
+
+      {/* Cabeçalho da página */}
+      <View style={[styles.headerWrapper, styles.centralPosition]}>
+        <View style={styles.headerTextWrapper}>
+          <Text style={[styles.headerTextFont, styles.headerTextSize]}>
+            Pets Desaparecidos
+          </Text>
+        </View>
+      </View>
+
+      {/* Menu 'Desaparecidos' / 'Encontrados' */}
+      <View style={styles.navigationMenuLayout}>
+        <View style={[styles.navigationMenuTextWrapper]}>
+          <View style={[styles.navigationMenuRightPadding]}>
+            <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
+              Desaparecidos
+            </Text>
+          </View>
+          <View>
+            <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
+              Encontrados
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.navigationMenuLineWrapper}>
+            <View style={styles.navigationMenuRightPadding}>
+              <View style={[styles.selectedMenuLineView, styles.navigationMenuWidth]}/>
+            </View>
+            <View>
+              <View style={styles.navigationMenuWidth}/>
+            </View>
+        </View>
+      </View>
+
+      {/* Aba 'Recentes' */}
+      <View style={[styles.frameParent5, styles.frameParentPosition]}>
+        <View style={[styles.todosWrapper, styles.frameParentSpaceBlock1]}>
+          <Text style={styles.todos}>Recentes</Text>
+        </View>
+        <View style={styles.frameParent6}>
+          <Image
+            style={styles.frameItem}
+            contentFit="cover"
+            source={require("../../assets/frame-60119.png")}
+          />
+          <Image
+            style={[styles.frameInner, styles.frameLayout]}
+            contentFit="cover"
+            source={require("../../assets/frame-60123.png")}
+          />
+          <Image
+            style={styles.frameLayout}
+            contentFit="cover"
+            source={require("../../assets/frame-60125.png")}
+          />
+        </View>
+      </View>
+
+      {/* Aba 'Todos' */}
       <View style={[styles.frameParent, styles.frameParentSpaceBlock1]}>
         <View style={[styles.todosWrapper, styles.frameParentSpaceBlock1]}>
           <Text style={styles.todos}>Todos</Text>
@@ -75,110 +137,94 @@ const Desaparecidos = () => {
           </View>
         </View>
       </View>
-      <View style={styles.frameParent3}>
-        <Image
-          style={[styles.heroiconsOutlineplusCircle, styles.heroiconsLayout]}
-          contentFit="cover"
-          source={require("../../assets/frame2.png")}
-        />
-        <View style={styles.petsDesaparecidosWrapper}>
-          <Text style={[styles.petsDesaparecidos, styles.desaparecidosTypo]}>
-            Pets Desaparecidos
-          </Text>
-        </View>
-        <Image
-          style={[styles.heroiconsOutlineplusCircle, styles.heroiconsLayout]}
-          contentFit="cover"
-          source={require("../../assets/frame2.png")}
-        />
-        <Image
-          style={[styles.heroiconsSolidheart, styles.heroiconsLayout]}
-          contentFit="cover"
-          source={require("../../assets/heroiconssolidheart.png")}
-        />
-      </View>
-      <View style={[styles.frameParent4, styles.phoneBarFlexBox]}>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.heroiconsOutlineplusCircle, styles.heroiconsLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidhome.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.home}>Inicio</Text>
-          </View>
-        </View>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.heroiconsOutlineplusCircle, styles.heroiconsLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidmagnifyingglass.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.searchTypo}>Buscar</Text>
-          </View>
-        </View>
-        <View style={styles.heroiconsSolidchatBubbleLeParent}>
-          <Image
-            style={[styles.heroiconsOutlineplusCircle, styles.heroiconsLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidchatbubbleleftright.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.searchTypo}>Messages</Text>
-          </View>
-        </View>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.heroiconsOutlineplusCircle, styles.heroiconsLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconsoutlinepluscircle.png")}
-          />
-          <Text style={[styles.setting, styles.searchTypo]}>Cadastrar</Text>
-        </View>
-      </View>
-      <View style={[styles.frameParent5, styles.frameParentPosition]}>
-        <View style={[styles.todosWrapper, styles.frameParentSpaceBlock1]}>
-          <Text style={styles.todos}>Recentes</Text>
-        </View>
-        <View style={styles.frameParent6}>
-          <Image
-            style={styles.frameItem}
-            contentFit="cover"
-            source={require("../../assets/frame-60119.png")}
-          />
-          <Image
-            style={[styles.frameInner, styles.frameLayout]}
-            contentFit="cover"
-            source={require("../../assets/frame-60123.png")}
-          />
-          <Image
-            style={styles.frameLayout}
-            contentFit="cover"
-            source={require("../../assets/frame-60125.png")}
-          />
-        </View>
-      </View>
-      <View style={styles.frameParent7}>
-        <View style={[styles.frameParent8, styles.guabaWrapperFlexBox]}>
-          <View style={styles.time}>
-            <Text style={[styles.desaparecidos1, styles.desaparecidosTypo]}>
-              Desaparecidos
-            </Text>
-          </View>
-          <View style={styles.encontradosWrapper}>
-            <Text style={[styles.desaparecidos1, styles.desaparecidosTypo]}>
-              Encontrados
-            </Text>
-          </View>
-        </View>
-        <View style={styles.lineView} />
-      </View>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    height: 932,
+    overflow: "hidden",
+    width: "100%",
+    backgroundColor: Color.bgCOLOUR,
+    flex: 1
+  },
+
+  centralPosition: {
+    width: width * 0.9,
+    left: (width * 0.1)/2
+  },
+
+  headerWrapper: {
+    top: 53
+  },
+
+  headerTextWrapper: {
+    width: '100%',
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+
+  headerTextSize: {
+    lineHeight: 21,
+    fontSize: FontSize.size_base
+  },
+
+  headerTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    color: Color.neutral10
+  },
+
+  regularTextSize: {
+    fontSize: FontSize.titleRegular_size,
+    lineHeight: 21
+  },
+
+  navigationMenuLayout: {
+    top: 84,
+    height: 33,
+    backgroundColor: Color.neutral8,
+    width: '100%',
+    position: "absolute"
+  },
+
+  navigationMenuRightPadding: {
+    paddingRight: width*0.1
+  },
+
+  navigationMenuWidth: {
+    width: width*0.4,
+    textAlign: "center"
+  },
+
+  navigationMenuTextWrapper: {
+    backgroundColor: Color.neutral8,
+    height: 30,
+    alignSelf: "stretch",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  navigationMenuTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    color: Color.neutralVariant100
+  },
+
+  navigationMenuLineWrapper: {
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+
+  selectedMenuLineView: {
+    borderTopWidth: 4,
+    borderColor: Color.neutralVariant100,
+    backgroundColor: Color.neutralVariant100,
+    borderStyle: "solid"
+  },
+
   frameParentSpaceBlock1: {
     paddingVertical: 0,
     paddingHorizontal: Padding.p_xl,
@@ -237,13 +283,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     left: 0,
     position: "absolute",
-  },
-  desaparecidosTypo: {
-    lineHeight: 21,
-    fontSize: FontSize.size_base,
-    textAlign: "left",
-    fontFamily: FontFamily.titleMedium1,
-    fontWeight: "500",
   },
   searchTypo: {
     color: Color.neutral9,
@@ -378,9 +417,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontSize: FontSize.labelBold_size,
   },
-  time: {
-    flexDirection: "row",
-  },
   batteryIcon: {
     marginTop: -5.75,
     top: "50%",
@@ -408,24 +444,9 @@ const styles = StyleSheet.create({
     paddingVertical: Padding.p_base,
     backgroundColor: Color.bgCOLOUR,
   },
-  petsDesaparecidos: {
-    color: Color.neutral10,
-  },
-  petsDesaparecidosWrapper: {
-    width: 94,
-    flexDirection: "row",
-  },
   heroiconsSolidheart: {
     height: 24,
     display: "none",
-  },
-  frameParent3: {
-    top: 53,
-    left: 20,
-    width: 390,
-    justifyContent: "space-between",
-    flexDirection: "row",
-    position: "absolute",
   },
   home: {
     fontFamily: FontFamily.titleRegular,
@@ -471,46 +492,6 @@ const styles = StyleSheet.create({
   },
   frameParent5: {
     top: 122,
-  },
-  desaparecidos1: {
-    color: Color.neutralVariant100,
-  },
-  encontradosWrapper: {
-    paddingLeft: Padding.p_3xs,
-    flexDirection: "row",
-  },
-  frameParent8: {
-    paddingHorizontal: 0,
-    backgroundColor: Color.neutral8,
-    height: 24,
-    justifyContent: "space-between",
-    alignSelf: "stretch",
-  },
-  lineView: {
-    borderColor: Color.neutralVariant100,
-    borderTopWidth: 2,
-    width: 112,
-    height: 2,
-    backgroundColor: Color.neutral8,
-    borderStyle: "solid",
-  },
-  frameParent7: {
-    top: 84,
-    height: 28,
-    paddingHorizontal: Padding.p_49xl,
-    backgroundColor: Color.neutral8,
-    width: 430,
-    justifyContent: "space-between",
-    paddingVertical: 0,
-    left: 0,
-    position: "absolute",
-  },
-  desaparecidos: {
-    flex: 1,
-    height: 932,
-    overflow: "hidden",
-    width: "100%",
-    backgroundColor: Color.bgCOLOUR,
   },
 });
 
