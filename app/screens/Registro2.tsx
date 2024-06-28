@@ -38,7 +38,6 @@ const Registro2 = () => {
 
   return (
     <View style={styles.backgroud}>
-
       {/* Cabeçalho da página */}
       <View style={[styles.headerWrapper, styles.centralPosition]}>
         {/* Botão de voltar */}
@@ -122,7 +121,6 @@ const Registro2 = () => {
           Continuar
         </Text>
       </Pressable>
-
     </View>
   );
 };

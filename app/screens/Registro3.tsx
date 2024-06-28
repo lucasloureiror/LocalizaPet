@@ -24,9 +24,16 @@ const Registro3 = () => {
     router.replace("(tabs)/")
   }
 
-  return (
-    <View style={styles.registro3}>
+  const clickEmailHandler = () => {
 
+  }
+
+  const clickTelefoneHandler = () => {
+
+  }
+
+  return (
+    <View style={styles.backgroud}>
       {/* Cabeçalho da página */}
       <View style={[styles.headerWrapper, styles.centralPosition]}>
         {/* Botão de voltar */}
@@ -60,32 +67,37 @@ const Registro3 = () => {
         </Text>
       </View>
 
-      <View style={[styles.inputField7Parent, styles.centralPosition]}>
-        <View style={styles.inputField7}>
-          <Text style={[styles.phoneNumber, styles.textTypo]}>E-mail</Text>
-          <View style={[styles.frameView, styles.frameViewFlexBox]}>
-            <Text style={[styles.text1, styles.textTypo]}>
+      {/* Seção dos campos que recebem input do usuário */}
+      <View style={[styles.inputFieldWrapper, styles.centralPosition]}>
+        {/* Campo 'E-mail' */}
+        <View>
+          <Text style={styles.labelTextLayout}>
+            E-mail
+          </Text>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickEmailHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
               Endereço de e-mail
             </Text>
-          </View>
+          </Pressable>
         </View>
-        <View style={styles.inputField8}>
-          <Text style={[styles.phoneNumber, styles.textTypo]}>
+
+        {/* Campo 'Telefone ou Whatsapp' */}
+        <View style={styles.inputFieldMarginTop}>
+          <Text style={styles.labelTextLayout}>
             Telefone ou WhatsApp
           </Text>
-          <View style={[styles.frameView, styles.frameViewFlexBox]}>
-            <Text style={[styles.text1, styles.textTypo]}>(55)9xxxx-xxxx</Text>
-          </View>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickTelefoneHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>(55)9xxxx-xxxx</Text>
+          </Pressable>
         </View>
       </View>
 
       {/* Botão para finalizar */}
       <Pressable style={[styles.primaryButtonLayout, styles.centralPosition]} onPress={clickFinalizarHandler}>
-        <Text style={[styles.primaryButtonFont, styles.regularTextSize]}>
+        <Text style={[styles.primaryButtonTextFont, styles.regularTextSize]}>
           Finalizar
         </Text>
       </Pressable>
-
     </View>
   );
 };
@@ -167,109 +179,63 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 
-  primaryButtonFont: {
+  primaryButtonTextFont: {
     fontFamily: FontFamily.loraBold,
     fontWeight: "700",
     color: Color.neutralVariant100
   },
 
+  inputFieldWrapper: {
+    top: 190,
+    height: 440,
+  },
 
-  textTypo: {
+  inputFieldMarginTop: {
+    marginTop: 15
+  },
+
+  labelTextLayout: {
+    fontSize: FontSize.labelBold_size,
+    lineHeight: 18,
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
-    textAlign: "left",
-  },
-  frameViewFlexBox: {
-    borderRadius: Border.br_xs,
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  time1: {
-    letterSpacing: 0.1,
-    lineHeight: 16,
-    fontWeight: "600",
-    fontFamily: FontFamily.labelBold,
-    color: Color.colorGray_100,
-    textAlign: "center",
-    fontSize: FontSize.labelBold_size,
-  },
-  time: {
-    flexDirection: "row",
-  },
-  batteryIcon: {
-    marginTop: -5.75,
-    top: "50%",
-    right: 0,
-    width: 25,
-    height: 12,
-    position: "absolute",
-  },
-  combinedShapeIcon: {
-    height: 11,
-    width: 16,
-  },
-  wiFiIcon: {
-    width: 15,
-    height: 11,
-  },
-  container: {
-    width: 67,
-    height: 12,
-  },
-  phoneBar: {
-    width: 430,
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: Padding.p_base,
-    alignItems: "center",
-    justifyContent: "space-between",
-    left: 0,
-    top: 0,
-    backgroundColor: Color.bgCOLOUR,
-  },
-  heroiconsSolidarrowLongRig: {
-    height: 16,
-    display: "none",
-    marginLeft: 8,
-    width: 16,
-  },
-  phoneNumber: {
-    lineHeight: 18,
     color: Color.neutral10,
-    fontSize: FontSize.labelBold_size,
+    marginBottom: 4
   },
-  text1: {
-    color: Color.neutral3,
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
-    fontWeight: "500",
-  },
-  frameView: {
-    alignSelf: "stretch",
-    backgroundColor: Color.neutralVariant100,
-    borderStyle: "solid",
-    borderColor: Color.neutral3,
-    borderWidth: 1,
-    height: 48,
-    padding: Padding.p_xs,
+
+  inputButtonLayout: {
     marginTop: 4,
+    padding: Padding.p_xs,
+    borderWidth: 0.3,
+    borderStyle: "solid",
+    borderRadius: Border.br_xs,
+    borderColor: Color.colorDarkgray_100,
+    backgroundColor: Color.neutralVariant100,
+    alignSelf: "stretch",
+    flexDirection: "row"
   },
-  inputField7: {
-    width: 390,
+
+  inputFieldLayout: {
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
-  inputField8: {
-    marginTop: 16,
-    width: 390,
+
+  inputFieldTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    color: Color.neutral3
   },
-  inputField7Parent: {
-    top: 184,
+
+  inputFieldIconFrame: {
+    height: 18,
+    width: 18
   },
-  registro3: {
-    height: 932,
-    overflow: "hidden",
-    width: "100%",
-    backgroundColor: Color.bgCOLOUR,
-    flex: 1,
-  },
+
+  inputFieldIconPosition: {
+    top: 15,
+    right: width * 0.03,
+    position: "absolute"
+  }
 });
 
 export default Registro3;

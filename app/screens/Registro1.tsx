@@ -139,7 +139,6 @@ const Registro1 = () => {
           Continuar
         </Text>
       </Pressable>
-
     </View>
   );
 };
