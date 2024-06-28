@@ -37,7 +37,7 @@ const Registro2 = () => {
   }
 
   return (
-    <View style={styles.backgroud}>
+    <View style={styles.background}>
       {/* Cabeçalho da página */}
       <View style={[styles.headerWrapper, styles.centralPosition]}>
         {/* Botão de voltar */}
@@ -126,7 +126,7 @@ const Registro2 = () => {
 };
 
 const styles = StyleSheet.create({
-  backgroud: {
+  background: {
     height: 932,
     overflow: "hidden",
     width: "100%",
