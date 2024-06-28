@@ -24,6 +24,18 @@ const Registro2 = () => {
     navigation.navigate("screens/Registro3");
   }
 
+  const clickNomeHandler = () => {
+    
+  }
+
+  const clickCidadeHandler = () => {
+    
+  }
+
+  const clickDetalhesHandler = () => {
+    
+  }
+
   return (
     <View style={styles.backgroud}>
 
@@ -59,60 +71,54 @@ const Registro2 = () => {
           Agora preencha a identificação do Pet, cidade que foi encontrado/desapareceu e forneça mais detalhes que possam ajudar.
         </Text>
       </View>
-  
-      <View style={styles.inputField7Parent}>
-        <View style={[styles.inputField7, styles.inputLayout]}>
-          <Text style={[styles.phoneNumber, styles.text2Typo]}>
+
+      {/* Seção dos campos que recebem input do usuário */}
+      <View style={[styles.inputFieldWrapper, styles.centralPosition]}>
+        {/* Campo 'Nome ou identificação' */}
+        <View>
+          <Text style={styles.labelTextLayout}>
             Nome ou identificação - se existir
           </Text>
-          <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.regularTextSize]}>Name......</Text>
-          </View>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickNomeHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
+              Nome
+            </Text>
+          </Pressable>
         </View>
-        <View style={[styles.inputField7, styles.inputLayout]}>
-          <Text style={[styles.phoneNumber, styles.text2Typo]}>
-            Nome ou identificação - se existir
+
+        {/* Campo 'Cidade' */}
+        <View style={styles.inputFieldMarginTop}>
+          <Text style={styles.labelTextLayout}>
+            Cidade
           </Text>
-          <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.regularTextSize]}>Nome</Text>
-          </View>
+          <Pressable style={[styles.inputButtonLayout, styles.inputFieldLayout]} onPress={clickCidadeHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
+              Cidade
+            </Text>
+            <Image
+              style={[styles.inputFieldIconFrame, styles.inputFieldIconPosition]}
+              contentFit="cover"
+              source={require("../../assets/heroiconssolidplay.png")}
+            />
+          </Pressable>
         </View>
-        <Text style={[styles.nomeOuIdentificao, styles.text2Typo]}>
-          Nome ou identificação - se existir
-        </Text>
-        <View style={[styles.inputField8, styles.inputLayout]}>
-          <Text style={[styles.phoneNumber, styles.text2Typo]}>
+
+        {/* Campo 'Forneça mais detalhes...' */}
+        <View style={styles.inputFieldMarginTop}>
+          <Text style={styles.labelTextLayout}>
             Forneça mais detalhes sobre o pet ou o local que foi encontrado
           </Text>
-          <View style={[styles.detalhesWrapper, styles.wrapperFlexBox]}>
-            <Text style={[styles.text, styles.regularTextSize]}>Detalhes</Text>
-          </View>
-        </View>
-        <View style={[styles.inputField12, styles.inputLayout]}>
-          <Text style={[styles.phoneNumber, styles.text2Typo]}>Cidade</Text>
-          <View style={[styles.inputField12Inner, styles.wrapperFlexBox]}>
-            <View style={styles.frameParent}>
-              <View
-                style={[
-                  styles.selectTypeOfPetWrapper,
-                  styles.primaryButtonFlexBox,
-                ]}
-              >
-              <Text style={[styles.text, styles.regularTextSize]}>Cidade</Text>
-              </View>
-              <Image
-                style={[styles.heroiconsSolidplay, styles.heroiconsLayout]}
-                contentFit="cover"
-                source={require("../../assets/heroiconssolidplay.png")}
-              />
-            </View>
-          </View>
+          <Pressable style={[styles.inputButtonLayout, styles.inputLongTextLayout]} onPress={clickDetalhesHandler}>
+            <Text style={[styles.inputFieldTextFont, styles.regularTextSize]}>
+              Detalhes
+            </Text>
+          </Pressable>
         </View>
       </View>
 
       {/* Botão para continuar */}
       <Pressable style={[styles.primaryButtonLayout, styles.centralPosition]} onPress={clickContinuarHandler}>
-        <Text style={[styles.primaryButtonFont, styles.regularTextSize]}>
+        <Text style={[styles.primaryButtonTextFont, styles.regularTextSize]}>
           Continuar
         </Text>
       </Pressable>
@@ -198,178 +204,67 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
 
-  primaryButtonFont: {
+  primaryButtonTextFont: {
     fontFamily: FontFamily.loraBold,
     fontWeight: "700",
     color: Color.neutralVariant100
   },
 
+  inputFieldWrapper: {
+    top: 190,
+    height: 440,
+  },
 
-  phoneBarFlexBox: {
-    justifyContent: "space-between",
-    flexDirection: "row",
+  inputFieldMarginTop: {
+    marginTop: 15
   },
-  inputLayout: {
-    width: width * 0.9,
-    position: "absolute",
-  },
-  text2Typo: {
-    textAlign: "left",
+
+  labelTextLayout: {
+    fontSize: FontSize.labelBold_size,
+    lineHeight: 18,
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
     color: Color.neutral10,
-    fontFamily: FontFamily.titleMedium1,
-    fontWeight: "500",
-  },
-  wrapperFlexBox: {
-    marginTop: 4,
-    borderStyle: "solid",
-    backgroundColor: Color.neutralVariant100,
-    alignSelf: "stretch",
-    flexDirection: "row",
-  },
-  primaryButtonFlexBox: {
-    justifyContent: "center",
-    flexDirection: "row",
-    position: "absolute",
-  },
-  heroiconsLayout: {
-    height: 16,
-    width: 16,
-  },
-  time1: {
-    letterSpacing: 0.1,
-    lineHeight: 16,
-    fontWeight: "600",
-    fontFamily: FontFamily.labelBold,
-    color: Color.colorGray_100,
-    textAlign: "center",
-    fontSize: FontSize.labelBold_size,
-  },
-  time: {
-    flexDirection: "row",
-  },
-  batteryIcon: {
-    marginTop: -5.75,
-    top: "50%",
-    right: 0,
-    width: 25,
-    height: 12,
-    position: "absolute",
-  },
-  combinedShapeIcon: {
-    height: 11,
-    width: 16,
-  },
-  wiFiIcon: {
-    width: 15,
-    height: 11,
-  },
-  container: {
-    width: 67,
-    height: 12,
-  },
-  phoneBar: {
-    width: 430,
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: Padding.p_base,
-    alignItems: "center",
-    justifyContent: "space-between",
-    left: 0,
-    top: 0,
-    position: "absolute",
-    backgroundColor: Color.bgCOLOUR,
-  },
-  phoneNumber: {
-    lineHeight: 18,
-    textAlign: "left",
-    fontSize: FontSize.labelBold_size,
-  },
-  text: {
-    color: Color.neutral3,
-    fontFamily: FontFamily.titleMedium1,
-    fontWeight: "500",
-    lineHeight: 21,
-    fontSize: FontSize.titleRegular_size,
-  },
-  wrapper: {
-    borderColor: Color.neutral3,
-    borderWidth: 1,
-    padding: Padding.p_xs,
-    height: 48,
-    marginTop: 4,
-    borderStyle: "solid",
-    backgroundColor: Color.neutralVariant100,
-    borderRadius: Border.br_xs,
-    alignSelf: "stretch",
-    alignItems: "center",
-  },
-  inputField7: {
-    left: 0,
-    top: 0,
-  },
-  nomeOuIdentificao: {
-    top: "0%",
-    left: "0%",
-    lineHeight: 18,
-    textAlign: "left",
-    fontSize: FontSize.labelBold_size,
-    position: "absolute",
-  },
-  detalhesWrapper: {
-    borderColor: "#d6d6d6",
-    borderWidth: 0.5,
-    height: 150,
-    padding: Padding.p_3xs,
-    marginTop: 4,
-    borderStyle: "solid",
-    backgroundColor: Color.neutralVariant100,
-    alignSelf: "stretch",
-  },
-  inputField8: {
-    top: 184,
-    left: 4,
-  },
-  selectTypeOfPetWrapper: {
-    left: 0,
-    top: 0,
-  },
-  heroiconsSolidplay: {
-    top: 4,
-    left: 226,
-    position: "absolute",
-  },
-  frameParent: {
-    width: 242,
-    height: 24,
-  },
-  inputField12Inner: {
-    borderColor: Color.colorDarkgray_100,
-    borderWidth: 0.3,
-    justifyContent: "flex-end",
-    padding: Padding.p_xs,
-    height: 48,
-    marginTop: 4,
-    borderStyle: "solid",
-    backgroundColor: Color.neutralVariant100,
-    borderRadius: Border.br_xs,
-    alignSelf: "stretch",
-    alignItems: "center",
-  },
-  inputField12: {
-    top: 88,
-    left: 0,
-  },
-  inputField7Parent: {
-    top: 214,
-    width: 394,
-    height: 356,
-    left: 20,
-    position: "absolute",
-  },
-  heroiconsSolidarrowLongRig: {
-    display: "none",
-    marginLeft: 8,
+    marginBottom: 4
   },
 
+  inputButtonLayout: {
+    marginTop: 4,
+    padding: Padding.p_xs,
+    borderWidth: 0.3,
+    borderStyle: "solid",
+    borderRadius: Border.br_xs,
+    borderColor: Color.colorDarkgray_100,
+    backgroundColor: Color.neutralVariant100,
+    alignSelf: "stretch",
+    flexDirection: "row"
+  },
+
+  inputFieldLayout: {
+    justifyContent: "flex-start",
+    alignItems: "center"
+  },
+
+  inputFieldTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    color: Color.neutral3
+  },
+
+  inputFieldIconFrame: {
+    height: 18,
+    width: 18
+  },
+
+  inputFieldIconPosition: {
+    top: 15,
+    right: width * 0.03,
+    position: "absolute"
+  },
+
+  inputLongTextLayout: {
+    height: 150
+  }
 });
 
 export default Registro2;

@@ -131,7 +131,6 @@ const Registro1 = () => {
               />
           </Pressable>
         </View>
-        
       </View>
 
       {/* Botão para continuar */}
@@ -255,12 +254,12 @@ const styles = StyleSheet.create({
     borderColor: Color.colorDarkgray_100,
     backgroundColor: Color.neutralVariant100,
     alignSelf: "stretch",
-    alignItems: "center",
     flexDirection: "row"
   },
 
   inputFieldLayout: {
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
 
   inputFieldTextFont: {
@@ -288,15 +287,15 @@ const styles = StyleSheet.create({
 
   inputImageLayout: {
     height: 130,
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "center"
   },
 
   inputImageIconLayout: {
     width: 84,
     height: 84,
     overflow: "hidden"
-  },
-
+  }
 });
 
 export default Registro1;
