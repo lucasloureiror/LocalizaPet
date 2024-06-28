@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
+import { useRouter } from 'expo-router';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Padding, Color, Border, FontFamily, FontSize } from "../GlobalStyles";
@@ -9,6 +10,19 @@ const { width, height } = Dimensions.get('window');
 
 const Desaparecidos = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const router = useRouter();
+
+  const clickDesaparecidosHandler = () => {
+    router.navigate("(tabs)/")
+  }
+
+  const clickEncontradosHandler = () => {
+    router.navigate("(tabs)/encontrados")
+  }
+
+  const clickPerfilPetHandler = () => {
+    navigation.navigate("screens/Perfil")
+  }
 
   return (
     <View style={styles.background}>
@@ -26,14 +40,18 @@ const Desaparecidos = () => {
       <View style={styles.navigationMenuLayout}>
         <View style={[styles.navigationMenuTextWrapper]}>
           <View style={[styles.navigationMenuRightPadding]}>
-            <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
-              Desaparecidos
-            </Text>
+            <Pressable onPress={clickDesaparecidosHandler}>
+              <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
+                Desaparecidos
+              </Text>
+            </Pressable>
           </View>
           <View>
-            <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
-              Encontrados
-            </Text>
+            <Pressable onPress={clickEncontradosHandler}>
+              <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
+                Encontrados
+              </Text>
+            </Pressable>
           </View>
         </View>
 
@@ -79,7 +97,7 @@ const Desaparecidos = () => {
         <View style={styles.frameGroup}>
           <Pressable
             style={[styles.frameContainer, styles.frameShadowBox]}
-            onPress={() => navigation.navigate("Perfil")}
+            onPress={clickPerfilPetHandler}
           >
             <Image
               style={[styles.frameChild, styles.wrapperLayout]}

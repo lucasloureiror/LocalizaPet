@@ -21,7 +21,7 @@ const Registro3 = () => {
   }
 
   const clickFinalizarHandler = () => {
-    router.replace("(tabs)/")
+    navigation.navigate("(tabs)")
   }
 
   const clickEmailHandler = () => {

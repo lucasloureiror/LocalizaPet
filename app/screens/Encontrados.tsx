@@ -1,52 +1,71 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, Dimensions } from "react-native";
 import { Image } from "expo-image";
+import { useRouter } from 'expo-router';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Padding, FontSize, Color, FontFamily, Border } from "../GlobalStyles";
 
+const { width, height } = Dimensions.get('window');
+
 const Encontrados = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
+  const router = useRouter();
+
+  const clickDesaparecidosHandler = () => {
+    router.navigate("(tabs)/")
+  }
+
+  const clickEncontradosHandler = () => {
+    router.navigate("(tabs)/encontrados")
+  }
+
+  const clickPerfilPetHandler = () => {
+    navigation.navigate("screens/Perfil")
+  }
+
   return (
-    <View style={styles.encontrados}>
-      <View style={[styles.frameParent, styles.framePosition]}>
-        <Image
-          style={[styles.frameIcon, styles.frameIconLayout]}
-          contentFit="cover"
-          source={require("../../assets/frame2.png")}
-        />
-        <View style={styles.petsEncontradosWrapper}>
-          <Text style={[styles.petsEncontrados, styles.desaparecidosTypo1]}>
+    <View style={styles.background}>
+
+      {/* Cabeçalho da página */}
+      <View style={[styles.headerWrapper, styles.centralPosition]}>
+        <View style={styles.headerTextWrapper}>
+          <Text style={[styles.headerTextFont, styles.headerTextSize]}>
             Pets Encontrados
           </Text>
         </View>
-        <Image
-          style={[styles.frameIcon, styles.frameIconLayout]}
-          contentFit="cover"
-          source={require("../../assets/frame2.png")}
-        />
-        <Image
-          style={[styles.heroiconsSolidheart, styles.frameIconLayout]}
-          contentFit="cover"
-          source={require("../../assets/heroiconssolidheart.png")}
-        />
       </View>
-      <View style={styles.frameGroup}>
-        <View style={styles.frameContainer}>
-          <View style={styles.time}>
-            <Text style={[styles.desaparecidos, styles.desaparecidosTypo]}>
-              Desaparecidos
-            </Text>
+
+      {/* Menu 'Desaparecidos' / 'Encontrados' */}
+      <View style={styles.navigationMenuLayout}>
+        <View style={[styles.navigationMenuTextWrapper]}>
+          <View style={[styles.navigationMenuRightPadding]}>
+            <Pressable onPress={clickDesaparecidosHandler}>
+              <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
+                Desaparecidos
+              </Text>
+            </Pressable>
           </View>
-          <View style={styles.encontradosWrapper}>
-            <Text style={[styles.desaparecidos, styles.desaparecidosTypo]}>
-              Encontrados
-            </Text>
+          <View>
+            <Pressable onPress={clickEncontradosHandler}>
+              <Text style={[styles.navigationMenuTextFont, styles.headerTextSize, styles.navigationMenuWidth]}>
+                Encontrados
+              </Text>
+            </Pressable>
           </View>
         </View>
-        <View style={styles.frameChild} />
+
+        <View style={styles.navigationMenuLineWrapper}>
+            <View style={styles.navigationMenuRightPadding}>
+              <View style={styles.navigationMenuWidth}/>
+            </View>
+            <View>
+              <View style={[styles.selectedMenuLineView, styles.navigationMenuWidth]}/>
+            </View>
+        </View>
       </View>
+
       <View style={[styles.frameView, styles.framePosition]}>
         <View style={[styles.frameParent1, styles.frameParentShadowBox]}>
           <Pressable
@@ -121,6 +140,7 @@ const Encontrados = () => {
           </View>
         </View>
       </View>
+
       <View style={[styles.frameParent4, styles.phoneBarFlexBox]}>
         <View style={styles.diasParent}>
           <Image
@@ -161,51 +181,95 @@ const Encontrados = () => {
           <Text style={[styles.setting, styles.searchTypo]}>Cadastrar</Text>
         </View>
       </View>
-      <View style={[styles.frameParent4, styles.phoneBarFlexBox]}>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidhome.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.home}>Inicio</Text>
-          </View>
-        </View>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidmagnifyingglass.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.searchTypo}>Buscar</Text>
-          </View>
-        </View>
-        <View style={styles.heroiconsSolidchatBubbleLeParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidchatbubbleleftright.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.searchTypo}>Messages</Text>
-          </View>
-        </View>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconsoutlinepluscircle.png")}
-          />
-          <Text style={[styles.setting, styles.searchTypo]}>Cadastrar</Text>
-        </View>
-      </View>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    height: 932,
+    overflow: "hidden",
+    width: "100%",
+    backgroundColor: Color.bgCOLOUR,
+    flex: 1
+  },
+
+  centralPosition: {
+    width: width * 0.9,
+    left: (width * 0.1)/2
+  },
+
+  headerWrapper: {
+    top: 53
+  },
+
+  headerTextWrapper: {
+    width: '100%',
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+
+  headerTextSize: {
+    lineHeight: 21,
+    fontSize: FontSize.size_base
+  },
+
+  headerTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    color: Color.neutral10
+  },
+
+  regularTextSize: {
+    fontSize: FontSize.titleRegular_size,
+    lineHeight: 21
+  },
+
+  navigationMenuLayout: {
+    top: 84,
+    height: 33,
+    backgroundColor: Color.neutral8,
+    width: '100%',
+    position: "absolute"
+  },
+
+  navigationMenuRightPadding: {
+    paddingRight: width*0.1
+  },
+
+  navigationMenuWidth: {
+    width: width*0.4,
+    textAlign: "center"
+  },
+
+  navigationMenuTextWrapper: {
+    backgroundColor: Color.neutral8,
+    height: 30,
+    alignSelf: "stretch",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  navigationMenuTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    color: Color.neutralVariant100
+  },
+
+  navigationMenuLineWrapper: {
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+
+  selectedMenuLineView: {
+    borderTopWidth: 4,
+    borderColor: Color.neutralVariant100,
+    backgroundColor: Color.neutralVariant100,
+    borderStyle: "solid"
+  },
+
+
   phoneBarFlexBox: {
     paddingVertical: Padding.p_base,
     justifyContent: "space-between",
@@ -225,11 +289,6 @@ const styles = StyleSheet.create({
   frameIconLayout: {
     height: 24,
     width: 24,
-  },
-  desaparecidosTypo1: {
-    textAlign: "left",
-    lineHeight: 21,
-    fontSize: FontSize.size_base,
   },
   desaparecidosTypo: {
     color: Color.neutralVariant100,
@@ -315,26 +374,8 @@ const styles = StyleSheet.create({
   frameIcon: {
     overflow: "hidden",
   },
-  petsEncontrados: {
-    color: Color.neutral10,
-    fontFamily: FontFamily.titleMedium1,
-    fontWeight: "500",
-    textAlign: "left",
-    lineHeight: 21,
-    fontSize: FontSize.size_base,
-  },
-  petsEncontradosWrapper: {
-    width: 94,
-    flexDirection: "row",
-  },
   heroiconsSolidheart: {
     display: "none",
-  },
-  frameParent: {
-    top: 53,
-    width: 390,
-    justifyContent: "space-between",
-    flexDirection: "row",
   },
   desaparecidos: {
     textAlign: "left",
@@ -511,13 +552,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Padding.p_11xl,
     borderStyle: "solid",
   },
-  encontrados: {
-    flex: 1,
-    height: 932,
-    overflow: "hidden",
-    width: "100%",
-    backgroundColor: Color.bgCOLOUR,
-  },
+
 });
 
 export default Encontrados;
