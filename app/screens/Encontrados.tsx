@@ -66,119 +66,68 @@ const Encontrados = () => {
         </View>
       </View>
 
-      <View style={[styles.frameView, styles.framePosition]}>
-        <View style={[styles.frameParent1, styles.frameParentShadowBox]}>
-          <Pressable
-            style={styles.wrapper}
-            onPress={() => navigation.navigate("Perfil")}
-          >
+      {/* Pets encontrados */}
+      <View style={styles.allImagesLayout}>
+        <View style={[styles.allImagesWrapper, styles.imageBlockPadding]}>
+
+          <Pressable style={styles.imageBoxShadow} onPress={clickPerfilPetHandler}>
             <Image
-              style={[styles.icon, styles.iconLayout]}
+              style={styles.imageLayout}
               contentFit="cover"
               source={require("../../assets/frame-10000020993.png")}
             />
-          </Pressable>
-          <View style={[styles.frameWrapper, styles.frameWrapperSpaceBlock]}>
-            <View style={styles.diasParent}>
-              <Text style={[styles.dias, styles.diasTypo]}>7 dias</Text>
-              <View style={styles.fazendaVilanovaWrapper}>
-                <Text
-                  style={[styles.fazendaVilanova, styles.desaparecidosTypo]}
-                >
-                  Fazenda Vilanova
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-        <Pressable
-          style={[
-            styles.unsplashtdx67igk0vwParent,
-            styles.frameWrapperSpaceBlock,
-          ]}
-          onPress={() => navigation.navigate("Perfil")}
-        >
-          <Image
-            style={styles.unsplashtdx67igk0vwIcon}
-            contentFit="cover"
-            source={require("../../assets/unsplashtdx67igk0vw.png")}
-          />
-          <View style={[styles.frameWrapper1, styles.frameWrapperSpaceBlock]}>
-            <View style={styles.diasParent}>
-              <Text style={[styles.dias, styles.diasTypo]}>2 dias</Text>
-              <View style={styles.fazendaVilanovaWrapper}>
-                <Text
-                  style={[styles.fazendaVilanova, styles.desaparecidosTypo]}
-                >
-                  Nova Petrópolis
-                </Text>
-              </View>
-            </View>
-          </View>
-        </Pressable>
-        <View style={[styles.frameParent2, styles.frameWrapperSpaceBlock]}>
-          <Image
-            style={[styles.frameItem, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../../assets/frame-10000020994.png")}
-          />
-          <View style={[styles.frameWrapper, styles.frameWrapperSpaceBlock]}>
-            <View>
-              <Text style={styles.teaserF}>Teaser , f</Text>
-              <Text style={[styles.agege, styles.diasTypo]}>Agege</Text>
-            </View>
-            <View style={styles.diasParent}>
-              <Text style={[styles.dias, styles.diasTypo]}>7 days</Text>
-              <View style={styles.fazendaVilanovaWrapper}>
-                <Text
-                  style={[styles.fazendaVilanova, styles.desaparecidosTypo]}
-                >
-                  Nigeria
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
 
-      <View style={[styles.frameParent4, styles.phoneBarFlexBox]}>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidhome.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.home}>Inicio</Text>
-          </View>
-        </View>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidmagnifyingglass.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.searchTypo}>Buscar</Text>
-          </View>
-        </View>
-        <View style={styles.heroiconsSolidchatBubbleLeParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidchatbubbleleftright.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={styles.searchTypo}>Messages</Text>
-          </View>
-        </View>
-        <View style={styles.diasParent}>
-          <Image
-            style={[styles.frameIcon, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconsoutlinepluscircle.png")}
-          />
-          <Text style={[styles.setting, styles.searchTypo]}>Cadastrar</Text>
+            <View style={[styles.imageLabelLayout, styles.imageSpaceBlock]}>
+              <View style={styles.imageLabelWrapper}>
+                <Text style={styles.petMissingTimeTextLayout}>7 dias</Text>
+                <View style={styles.petMissingPlaceWrapper}>
+                  <Text style={styles.petMissingPlaceTextLayout}>
+                    Fazenda Vilanova
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </Pressable>
+
+          <Pressable style={[styles.imageBoxShadow, styles.imageSpaceBlock]} onPress={clickPerfilPetHandler}>
+            <Image
+              style={styles.imageLayout}
+              contentFit="cover"
+              source={require("../../assets/unsplashtdx67igk0vw.png")}
+            />
+
+            <View style={[styles.imageLabelLayout, styles.imageSpaceBlock]}>
+              <View style={styles.imageLabelWrapper}>
+                <Text style={styles.petMissingTimeTextLayout}>2 dias</Text>
+                <View style={styles.petMissingPlaceWrapper}>
+                  <Text style={styles.petMissingPlaceTextLayout}>
+                    Nova Petrópolis
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </Pressable>
+
+          <Pressable style={[styles.imageBoxShadow, styles.imageSpaceBlock]} onPress={clickPerfilPetHandler}>
+            <Image
+              style={styles.imageLayout}
+              contentFit="cover"
+              source={require("../../assets/frame-10000020994.png")}
+            />
+
+            <View style={[styles.imageLabelLayout, styles.imageSpaceBlock]}>
+              <View style={styles.imageLabelWrapper}>
+                <Text style={styles.petMissingTimeTextLayout}>5 dias</Text>
+                <View style={styles.petMissingPlaceWrapper}>
+                  <Text style={styles.petMissingPlaceTextLayout}>
+                    Água Santa
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </Pressable>
+
+          <View style={styles.imageSpaceBlock}/>
         </View>
       </View>
 
@@ -189,7 +138,7 @@ const Encontrados = () => {
 const styles = StyleSheet.create({
   background: {
     height: 932,
-    overflow: "hidden",
+    overflow: "scroll",
     width: "100%",
     backgroundColor: Color.bgCOLOUR,
     flex: 1
@@ -269,33 +218,47 @@ const styles = StyleSheet.create({
     borderStyle: "solid"
   },
 
+  imageBlockPadding: {
+    paddingVertical: 0,
+    paddingHorizontal: Padding.p_xl
+  },
 
-  phoneBarFlexBox: {
-    paddingVertical: Padding.p_base,
-    justifyContent: "space-between",
-    flexDirection: "row",
-    width: 430,
-    left: 0,
-    position: "absolute",
-  },
-  time1FlexBox: {
-    textAlign: "center",
-    lineHeight: 16,
-  },
-  framePosition: {
-    left: 20,
-    position: "absolute",
-  },
-  frameIconLayout: {
-    height: 24,
-    width: 24,
-  },
-  desaparecidosTypo: {
-    color: Color.neutralVariant100,
+  labelTextLayout: {
+    fontSize: FontSize.labelBold_size,
+    lineHeight: 18,
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
+    color: Color.neutralVariant00,
+    textAlign: "left",
+    marginBottom: 4
   },
-  frameParentShadowBox: {
+
+  recentImageWrapper: {
+    alignItems: "center",
+    marginTop: 8,
+    flexDirection: "row"
+  },
+
+  recentImageFrame: {
+    height: 154,
+    width: 147,
+    marginLeft: 8,
+    borderTopRightRadius: Border.br_xs,
+    borderTopLeftRadius: Border.br_xs
+  },
+
+  allImagesLayout: {
+    top: 122,
+    width: width,
+    position: "absolute"
+  },
+
+  allImagesWrapper: {
+    marginTop: 8,
+    alignSelf: "stretch"
+  },
+
+  imageBoxShadow: {
     height: 287,
     backgroundColor: Color.neutralVariant100,
     shadowOpacity: 1,
@@ -306,252 +269,64 @@ const styles = StyleSheet.create({
       height: 3,
     },
     shadowColor: "rgba(0, 0, 0, 0.2)",
-    borderRadius: Border.br_xs,
+    borderRadius: Border.br_xs
   },
-  iconLayout: {
+
+  imageLayout: {
     maxWidth: "100%",
-    alignSelf: "stretch",
+    alignSelf: "auto",
     overflow: "hidden",
-    width: "100%",
+    height: 209,
+    borderRadius: Border.br_xs
   },
-  frameWrapperSpaceBlock: {
+
+  imageLabelLayout: {
+    padding: Padding.p_5xs,
+    justifyContent: "center",
+    borderTopWidth: 0.3,
+    borderColor: Color.colorDarkgray_200,
     marginTop: 12,
-    alignSelf: "stretch",
+    borderStyle: "solid",
+    flexDirection: "row"
   },
-  diasTypo: {
+
+  imageSpaceBlock: {
+    marginTop: 12,
+    alignSelf: "stretch"
+  },
+
+  imageLabelWrapper: {
+    alignItems: "center"
+  },
+
+  petMissingTimeTextLayout: {
     fontFamily: FontFamily.loraBoldItalic,
     fontWeight: "700",
     fontStyle: "italic",
+    textAlign: "left",
     lineHeight: 18,
-    textAlign: "left",
     fontSize: FontSize.labelBold_size,
+    color: Color.neutral7
   },
-  searchTypo: {
-    color: Color.neutral9,
-    fontFamily: FontFamily.titleRegular,
-    lineHeight: 20,
-    fontSize: FontSize.titleRegular_size,
-    textAlign: "left",
-  },
-  time1: {
-    letterSpacing: 0.1,
-    fontWeight: "600",
-    fontFamily: FontFamily.labelBold,
-    color: Color.colorGray_100,
-    fontSize: FontSize.labelBold_size,
-    textAlign: "center",
-    lineHeight: 16,
-  },
-  time: {
-    flexDirection: "row",
-  },
-  batteryIcon: {
-    marginTop: -5.75,
-    top: "50%",
-    right: 0,
-    width: 25,
-    height: 12,
-    position: "absolute",
-  },
-  combinedShapeIcon: {
-    width: 16,
-    height: 11,
-  },
-  wiFiIcon: {
-    width: 15,
-    height: 11,
-  },
-  container: {
-    width: 67,
-    height: 12,
-  },
-  phoneBar: {
-    top: 0,
-    paddingHorizontal: Padding.p_xl,
-    alignItems: "center",
-    backgroundColor: Color.bgCOLOUR,
-  },
-  frameIcon: {
-    overflow: "hidden",
-  },
-  heroiconsSolidheart: {
-    display: "none",
-  },
-  desaparecidos: {
-    textAlign: "left",
-    lineHeight: 21,
-    fontSize: FontSize.size_base,
-    color: Color.neutralVariant100,
-  },
-  encontradosWrapper: {
-    paddingLeft: Padding.p_3xs,
-    flexDirection: "row",
-  },
-  frameContainer: {
-    paddingHorizontal: 0,
-    paddingVertical: Padding.p_9xs,
-    alignSelf: "stretch",
-    backgroundColor: Color.neutral8,
-    height: 24,
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  frameChild: {
-    borderColor: Color.neutralVariant100,
-    borderTopWidth: 2,
-    width: 98,
-    height: 2,
-    borderStyle: "solid",
-    backgroundColor: Color.neutral8,
-  },
-  frameGroup: {
-    top: 86,
-    height: 28,
-    alignItems: "flex-end",
-    paddingHorizontal: Padding.p_49xl,
-    paddingVertical: 0,
-    backgroundColor: Color.neutral8,
-    justifyContent: "space-between",
-    width: 430,
-    left: 0,
-    position: "absolute",
-  },
-  icon: {
-    height: "100%",
-  },
-  wrapper: {
-    height: 209,
-    width: "100%",
-  },
-  dias: {
-    color: Color.neutral7,
-  },
-  fazendaVilanova: {
-    fontSize: FontSize.size_3xs,
-    textAlign: "center",
-    lineHeight: 16,
-  },
-  fazendaVilanovaWrapper: {
+
+  petMissingPlaceWrapper: {
     backgroundColor: Color.neutral7,
     paddingHorizontal: Padding.p_5xs,
     marginTop: 4,
     borderRadius: Border.br_xs,
     paddingVertical: Padding.p_9xs,
     alignItems: "center",
-    flexDirection: "row",
+    flexDirection: "row"
   },
-  diasParent: {
-    alignItems: "center",
-  },
-  frameWrapper: {
-    paddingHorizontal: Padding.p_9xs,
-    paddingVertical: Padding.p_5xs,
-    borderTopWidth: 0.3,
-    borderColor: Color.colorDarkgray_200,
-    marginTop: 12,
-    borderStyle: "solid",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
-  frameParent1: {
-    alignSelf: "stretch",
-    backgroundColor: Color.neutralVariant100,
-    shadowOpacity: 1,
-    elevation: 5,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.2)",
-  },
-  unsplashtdx67igk0vwIcon: {
-    borderTopLeftRadius: Border.br_xs,
-    borderTopRightRadius: Border.br_xs,
-    height: 210,
-    width: 391,
-  },
-  frameWrapper1: {
-    padding: Padding.p_5xs,
-    borderTopWidth: 0.3,
-    borderColor: Color.colorDarkgray_200,
-    marginTop: 12,
-    borderStyle: "solid",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
-  unsplashtdx67igk0vwParent: {
-    height: 287,
-    backgroundColor: Color.neutralVariant100,
-    shadowOpacity: 1,
-    elevation: 5,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.2)",
-    borderRadius: Border.br_xs,
-  },
-  frameItem: {
-    height: 209,
-  },
-  teaserF: {
-    fontSize: FontSize.size_5xl,
-    lineHeight: 28,
-    color: Color.neutral8,
-    textAlign: "left",
+
+  petMissingPlaceTextLayout: {
+    fontSize: FontSize.size_3xs,
+    color: Color.neutralVariant100,
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
-  },
-  agege: {
-    color: Color.neutralVariant00,
-    marginTop: 4,
-  },
-  frameParent2: {
-    height: 287,
-    backgroundColor: Color.neutralVariant100,
-    shadowOpacity: 1,
-    elevation: 5,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.2)",
-    borderRadius: Border.br_xs,
-  },
-  frameView: {
-    top: 122,
-    width: 391,
-  },
-  home: {
-    fontFamily: FontFamily.titleRegular,
-    lineHeight: 20,
-    fontSize: FontSize.titleRegular_size,
-    color: Color.neutral8,
-    textAlign: "left",
-  },
-  homeWrapper: {
-    marginTop: 2,
-    flexDirection: "row",
-  },
-  heroiconsSolidchatBubbleLeParent: {
-    display: "none",
-    alignItems: "center",
-  },
-  setting: {
-    marginTop: 2,
-  },
-  frameParent4: {
-    top: 858,
-    backgroundColor: Color.primary1,
-    borderColor: Color.neutral9,
-    borderWidth: 0.5,
-    paddingHorizontal: Padding.p_11xl,
-    borderStyle: "solid",
-  },
+    textAlign: "center",
+    lineHeight: 16,
+  }
 
 });
 
