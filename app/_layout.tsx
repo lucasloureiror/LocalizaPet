@@ -23,6 +23,8 @@ export default function StackLayout() {
         <Stack.Screen name="screens/Registro1"/>
         <Stack.Screen name="screens/Registro2"/>
         <Stack.Screen name="screens/Registro3"/>
+        <Stack.Screen name="(tabs)"/>
+        <Stack.Screen name="screens/Perfil"/>
     </Stack>
   );
 

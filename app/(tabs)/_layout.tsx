@@ -41,6 +41,12 @@ export default function TabLayout() {
             <TabBarIcon name={focused ? 'add-circle' : 'add-circle-outline'} color={color} />
           ),
         }}
+      />  
+      <Tabs.Screen
+        name="encontrados"
+        options={{
+          href: null
+        }}
       />
     </Tabs>
   );
