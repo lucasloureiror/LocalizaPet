@@ -1,233 +1,190 @@
 import * as React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Dimensions, Pressable } from "react-native";
 import { Image } from "expo-image";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Padding, FontFamily, FontSize, Color, Border } from "../GlobalStyles";
 
+const { width, height } = Dimensions.get('window');
+
 const Perfil = () => {
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+  const clickVoltarHandler = () => {
+    navigation.navigate("screens/Desaparecidos");
+  }
+
+  const clickRegistrarAvistamentoHandler = () => {
+
+  }
+
+  const clickContatoHandler = () => {
+
+  }
+
   return (
-    <View style={styles.perfil}>
-      <View style={styles.animalDesaparecidoWrapper}>
-        <Text style={styles.animalDesaparecido}>Animal Desaparecido</Text>
+    <View style={styles.background}>
+
+      {/* Cabeçalho da página */}
+      <View style={styles.headerLayout}/>
+      <View style={[styles.headerWrapper, styles.centralPosition]}>
+        {/* Botão de início */}
+        <Pressable style={styles.iconFrame} onPress={clickVoltarHandler}>
+          <Image
+            style={styles.iconLayout}
+            contentFit="cover"
+            source={require("../../assets/frame1.png")}
+          />
+        </Pressable>
+
+        {/* Texto central */}
+        <View style={styles.headerTextWrapper}>
+          <Text style={[styles.headerTextSize, styles.headerTextFont]}>Maria Bertolina</Text>
+        </View>
+
+        <View style={styles.iconFrame}></View>
       </View>
-      <View style={[styles.frameParent, styles.phoneBarFlexBox]}>
-        <View style={styles.heroiconsSolidhomeParent}>
-          <Image
-            style={[styles.heroiconsSolidhome, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidhome.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={[styles.home, styles.homeTypo]}>Inicio</Text>
-          </View>
-        </View>
-        <View style={styles.heroiconsSolidhomeParent}>
-          <Image
-            style={[styles.heroiconsSolidhome, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidmagnifyingglass.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={[styles.search, styles.homeTypo]}>Buscar</Text>
-          </View>
-        </View>
-        <View style={styles.heroiconsSolidchatBubbleLeParent}>
-          <Image
-            style={[styles.heroiconsSolidhome, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconssolidchatbubbleleftright.png")}
-          />
-          <View style={styles.homeWrapper}>
-            <Text style={[styles.search, styles.homeTypo]}>Messages</Text>
-          </View>
-        </View>
-        <View style={styles.heroiconsSolidhomeParent}>
-          <Image
-            style={[styles.heroiconsSolidhome, styles.frameIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/heroiconsoutlinepluscircle.png")}
-          />
-          <Text style={[styles.setting, styles.homeTypo]}>Cadastrar</Text>
-        </View>
-        <View style={styles.frameChild} />
+
+      {/* Status do animal */}
+      <View style={[styles.petStatusWrapper, styles.centralPosition]}>
+        <Text style={styles.petStatusTextLayout}>Animal Desaparecido</Text>
       </View>
-      <View style={styles.perfilInner}>
+
+      {/* Imagem do pet */}
+      <View style={styles.profileImageWrapper}>
         <Image
-          style={styles.frameItem}
+          style={[styles.profileImageFrame, styles.centralPosition]}
           contentFit="cover"
           source={require("../../assets/frame-1000002099.png")}
         />
       </View>
-      <View style={[styles.frameGroup, styles.framePosition]}>
-        <View>
-          <View style={styles.frameWrapperBorder}>
-            <View style={styles.frameView}>
-              <View
-                style={[
-                  styles.registrarAvistamentoWrapper,
-                  styles.wrapperFlexBox1,
-                ]}
-              >
-                <Text style={[styles.registrarAvistamento, styles.idTypo]}>
-                  Registrar avistamento
-                </Text>
-              </View>
-              <Image
-                style={[styles.heroiconsSolidmapPin, styles.subtractIconLayout]}
-                contentFit="cover"
-                source={require("../../assets/heroiconssolidmappin.png")}
-              />
-            </View>
+
+      {/* Botões */}
+      <View style={styles.buttonSectionWrapper}>
+        {/* Botão 'Registrar avistamento' */}
+        <Pressable style={styles.buttonBorderWrapper} onPress={clickRegistrarAvistamentoHandler}>
+          <Text style={[styles.regularTextSize, styles.buttonTextFont]}>
+            Registrar avistamento
+          </Text>
+          <Image
+              style={[styles.buttonIconFrame, styles.buttonIconPosition]}
+              contentFit="cover"
+              source={require("../../assets/heroiconssolidmappin.png")}
+            />
+        </Pressable>
+        
+        {/* Botão 'Contato' */}
+        <Pressable style={[styles.buttonBorderWrapper, styles.buttonMarginTop]} onPress={clickContatoHandler}>
+          <Text style={[styles.regularTextSize, styles.buttonTextFont]}>
+            Contato
+          </Text>
+          <Image
+              style={[styles.buttonIconFrame, styles.buttonIconPosition]}
+              contentFit="cover"
+              source={require("../../assets/subtract.png")}
+            />
+        </Pressable>
+      </View>
+
+      {/* Informações sobre o pet */}
+      <View style={styles.infoSectionWrapper}>
+        <View style={styles.infoBoxLayout}>
+          <View style={styles.infoBoxLineWrapper}>
+            <Text style={[styles.regularTextSize, styles.infoFieldTextFont]}>ID:</Text>
+            <Text style={[styles.labelTextSize, styles.infoContentTextFont]}>291023</Text>
           </View>
-          <View style={[styles.frameWrapper1, styles.frameWrapperBorder]}>
-            <View style={styles.frameParent1}>
-              <View
-                style={[
-                  styles.registrarAvistamentoWrapper,
-                  styles.wrapperFlexBox1,
-                ]}
-              >
-                <Text style={[styles.registrarAvistamento, styles.idTypo]}>
-                  Contato
-                </Text>
-              </View>
-              <Image
-                style={[styles.subtractIcon, styles.subtractIconLayout]}
-                contentFit="cover"
-                source={require("../../assets/subtract.png")}
-              />
-            </View>
+          <View style={styles.infoBoxLineWrapper}>
+            <Text style={[styles.regularTextSize, styles.infoFieldTextFont]}>Nome:</Text>
+            <Text style={[styles.labelTextSize, styles.infoContentTextFont]}>Maria Bertolina</Text>
           </View>
-        </View>
-        <View style={styles.frameParent2}>
-          <View style={styles.frameParent3}>
-            <View style={styles.wrapperFlexBox1}>
-              <Text style={[styles.id, styles.idTypo]}>ID:</Text>
-            </View>
-            <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.text, styles.textTypo]}>291023</Text>
-            </View>
+          <View style={styles.infoBoxLineWrapper}>
+            <Text style={[styles.regularTextSize, styles.infoFieldTextFont]}>Espécie:</Text>
+            <Text style={[styles.labelTextSize, styles.infoContentTextFont]}>Cachorro</Text>
           </View>
-          <View style={[styles.frameParent4, styles.frameParentFlexBox]}>
-            <View style={styles.wrapperFlexBox1}>
-              <Text style={[styles.id, styles.idTypo]}>Nome :</Text>
-            </View>
-            <View style={styles.wrapperFlexBox}>
-              <Text style={styles.textTypo}>Maria Bertolina</Text>
-            </View>
+          <View style={styles.infoBoxLineWrapper}>
+            <Text style={[styles.regularTextSize, styles.infoFieldTextFont]}>Cidade:</Text>
+            <Text style={[styles.labelTextSize, styles.infoContentTextFont]}>Guaíba</Text>
           </View>
-          <View style={[styles.frameParent4, styles.frameParentFlexBox]}>
-            <View style={styles.wrapperFlexBox1}>
-              <Text style={[styles.id, styles.idTypo]}>Espécie :</Text>
-            </View>
-            <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.text, styles.textTypo]}>Cão</Text>
-            </View>
-          </View>
-          <View style={[styles.frameParent4, styles.frameParentFlexBox]}>
-            <View style={styles.wrapperFlexBox1}>
-              <Text style={[styles.id, styles.idTypo]}>Cidade:</Text>
-            </View>
-            <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.text, styles.textTypo]}>Guaíba</Text>
-            </View>
-          </View>
-          <View style={styles.frameParentFlexBox}>
-            <View style={styles.wrapperFlexBox1}>
-              <Text style={[styles.id, styles.idTypo]}>Detalhes:</Text>
-            </View>
-            <View style={[styles.wrapper, styles.wrapperFlexBox]}>
-              <Text style={[styles.text, styles.textTypo]}>
-                Cachorra idosa muito querida por minha família, caso encontre
-                ela favor oferecer comida.
-              </Text>
-            </View>
-          </View>
+          <Text style={[styles.regularTextSize, styles.infoFieldTextFont]}>Detalhes:</Text>
+          <Text style={[styles.labelTextSize, styles.infoContentTextFont]}>Cachorra idosa muito querida por minha família, caso encontre ela favor oferecer comida.</Text>
         </View>
       </View>
-      <Text style={styles.mariaBertolina1}>Maria Bertolina</Text>
-      <Image
-        style={[styles.frameIcon, styles.framePosition]}
-        contentFit="cover"
-        source={require("../../assets/frame1.png")}
-      />
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  phoneBarFlexBox: {
-    paddingVertical: Padding.p_base,
-    justifyContent: "space-between",
-    width: 430,
-    flexDirection: "row",
+  background: {
+    backgroundColor: Color.bgCOLOUR,
+    width: "100%",
+    height: 932,
+    overflow: "scroll",
+    flex: 1,
   },
-  frameIconLayout: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
+
+  centralPosition: {
+    width: width * 0.9,
+    left: (width * 0.1)/2
   },
-  homeTypo: {
-    fontFamily: FontFamily.titleRegular,
-    lineHeight: 20,
-    fontSize: FontSize.titleRegular_size,
-    textAlign: "left",
-  },
-  phoneBg: {
-    backgroundColor: Color.neutral8,
-    alignItems: "center",
-  },
-  framePosition: {
-    left: 20,
-    position: "absolute",
-  },
-  wrapperFlexBox1: {
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  idTypo: {
+
+  regularTextSize: {
     lineHeight: 21,
-    textAlign: "left",
     fontSize: FontSize.titleRegular_size,
+  },
+
+  labelTextSize: {
+    lineHeight: 16,
+    fontSize: FontSize.labelBold_size,
+  },
+
+  headerLayout: {
+    top: 0,
+    height: 96,
+    width: "100%",
+    backgroundColor: Color.neutral8
+  },
+
+  iconFrame: {
+    height: 28,
+    width: 28
+  },
+
+  iconLayout: {
+    height: "100%",
+    width: "100%"
+  },
+
+  headerWrapper: {
+    top: 48,
+    justifyContent: "space-between",
+    flexDirection: "row",
+    position: "absolute"
+  },
+
+  headerTextWrapper: {
+    flexDirection: "row"
+  },
+
+  headerTextSize: {
+    fontSize: FontSize.size_5xl,
+    lineHeight: 28
+  },
+
+  headerTextFont: {
     fontFamily: FontFamily.titleMedium1,
     fontWeight: "500",
+    textAlign: "left",
+    color: Color.neutralVariant100
   },
-  subtractIconLayout: {
-    height: 16,
-    width: 16,
+
+  petStatusWrapper: {
+    top: 111,
+    flexDirection: "row",
     position: "absolute",
   },
-  frameWrapperBorder: {
-    padding: Padding.p_xs,
-    justifyContent: "flex-end",
-    borderWidth: 0.3,
-    borderColor: Color.colorDarkgray_100,
-    backgroundColor: Color.neutralVariant100,
-    borderRadius: Border.br_xs,
-    width: 390,
-    alignItems: "center",
-    borderStyle: "solid",
-    flexDirection: "row",
-  },
-  wrapperFlexBox: {
-    marginLeft: 8,
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  textTypo: {
-    fontSize: FontSize.size_2xs,
-    color: Color.neutralVariant100,
-    lineHeight: 16,
-    letterSpacing: 0.1,
-    textAlign: "left",
-    fontFamily: FontFamily.titleMedium1,
-    fontWeight: "500",
-  },
-  frameParentFlexBox: {
-    marginTop: 4,
-    alignSelf: "stretch",
-    flexDirection: "row",
-  },
-  animalDesaparecido: {
+
+  petStatusTextLayout: {
     lineHeight: 18,
     color: Color.neutral10,
     textAlign: "center",
@@ -236,196 +193,102 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     flex: 1,
   },
-  animalDesaparecidoWrapper: {
-    top: 111,
-    left: 82,
-    width: 267,
+
+  profileImageWrapper: {
+    top: 146,
+    height: 287,
     flexDirection: "row",
     position: "absolute",
   },
-  heroiconsSolidhome: {
-    height: 24,
-  },
-  home: {
-    color: Color.neutral8,
-    textAlign: "left",
-  },
-  homeWrapper: {
-    marginTop: 2,
-    flexDirection: "row",
-  },
-  heroiconsSolidhomeParent: {
-    alignItems: "center",
-  },
-  search: {
-    color: Color.neutral9,
-    textAlign: "left",
-  },
-  heroiconsSolidchatBubbleLeParent: {
-    display: "none",
-    alignItems: "center",
-  },
-  setting: {
-    color: Color.neutral9,
-    textAlign: "left",
-    marginTop: 2,
-  },
-  frameParent: {
-    top: 854,
-    backgroundColor: Color.primary1,
-    borderColor: Color.neutral9,
-    borderWidth: 0.5,
-    paddingHorizontal: Padding.p_11xl,
-    borderStyle: "solid",
-    left: 0,
-    justifyContent: "space-between",
-    width: 430,
-    position: "absolute",
-  },
-  time1: {
-    fontWeight: "600",
-    fontFamily: FontFamily.labelBold,
-    color: Color.neutralVariant100,
-    lineHeight: 16,
-    letterSpacing: 0.1,
-    textAlign: "center",
-    fontSize: FontSize.labelBold_size,
-  },
-  time: {
-    flexDirection: "row",
-  },
-  batteryIcon: {
-    marginTop: -5.75,
-    top: "50%",
-    right: 0,
-    width: 25,
-    height: 12,
-    position: "absolute",
-  },
-  combinedShapeIcon: {
-    height: 11,
-    width: 16,
-  },
-  wiFiIcon: {
-    width: 15,
-    height: 11,
-  },
-  container: {
-    width: 67,
-    height: 12,
-  },
-  phoneBar: {
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: Padding.p_base,
-    justifyContent: "space-between",
-    width: 430,
-    flexDirection: "row",
-  },
-  frameChild: {
-    height: 36,
-    marginTop: 12,
-    width: 390,
-    backgroundColor: Color.neutral8,
-    justifyContent: "space-between",
-  },
-  phoneBarParent: {
-    top: 0,
-    left: 0,
-    position: "absolute",
-  },
-  frameItem: {
+
+  profileImageFrame: {
     maxHeight: "100%",
-    width: 410,
     alignSelf: "stretch",
   },
-  perfilInner: {
-    top: 146,
-    left: 5,
-    width: 574,
-    height: 271,
+
+  buttonSectionWrapper: {
+    top: 360,
+    alignItems: "center"
+  },
+
+  buttonBorderWrapper: {
+    padding: Padding.p_xs,
+    justifyContent: "center",
+    borderWidth: 0.3,
+    borderColor: Color.colorDarkgray_100,
+    backgroundColor: Color.neutralVariant100,
+    borderRadius: Border.br_xs,
+    width: 390,
+    maxWidth: width * 0.9,
+    alignItems: "center",
+    borderStyle: "solid",
     flexDirection: "row",
-    position: "absolute",
   },
-  registrarAvistamento: {
-    color: Color.neutral9,
+
+  buttonTextFont: {
+    fontFamily: FontFamily.titleMedium1,
+    fontWeight: "500",
+    color: Color.neutral9
   },
-  registrarAvistamentoWrapper: {
-    top: 0,
-    left: 0,
-    position: "absolute",
+
+  buttonIconFrame: {
+    height: 18,
+    width: 18
   },
-  heroiconsSolidmapPin: {
-    top: 4,
-    left: 238,
-    overflow: "hidden",
+
+  buttonIconPosition: {
+    top: 15,
+    right: width * 0.03,
+    position: "absolute"
   },
-  frameView: {
+
+  buttonContentWrapper: {
     width: 258,
     height: 24,
   },
-  subtractIcon: {
-    top: 5,
-    left: 202,
-  },
-  frameParent1: {
-    width: 221,
-    height: 24,
-  },
-  frameWrapper1: {
+
+  buttonMarginTop: {
     marginTop: 16,
   },
-  id: {
-    color: Color.neutralVariant100,
-  },
-  text: {
-    flex: 1,
-  },
-  wrapper: {
-    flex: 1,
-  },
-  frameParent3: {
-    alignSelf: "stretch",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  frameParent4: {
+
+  infoSectionWrapper: {
+    top: 360,
     alignItems: "center",
   },
-  frameParent2: {
+
+  infoBoxLayout: {
     backgroundColor: Color.neutral7,
     padding: 24,
     marginTop: 24,
     borderRadius: Border.br_xs,
     width: 390,
+    maxWidth: width * 0.9,
+    marginBottom: 20
   },
-  frameGroup: {
-    top: 448,
+
+  infoBoxLineWrapper: {
+    alignItems: "center",
+    flexDirection: "row",
+    marginBottom: 3
   },
-  mariaBertolina1: {
-    top: 55,
-    left: 137,
-    fontSize: FontSize.size_5xl,
-    lineHeight: 28,
-    width: 190,
+
+  infoTextColor: {
     color: Color.neutralVariant100,
-    textAlign: "left",
-    fontFamily: FontFamily.titleMedium1,
+  },
+
+  infoFieldTextFont: {
+    color: Color.neutralVariant100,
+    fontFamily: FontFamily.loraBold,
     fontWeight: "500",
-    position: "absolute",
+    marginRight: 8
   },
-  frameIcon: {
-    top: 60,
-    height: 24,
-    width: 24,
-    overflow: "hidden",
-  },
-  perfil: {
-    backgroundColor: Color.bgCOLOUR,
-    width: "100%",
-    height: 932,
-    overflow: "hidden",
-    flex: 1,
-  },
+
+  infoContentTextFont: {
+    color: Color.neutralVariant100,
+    fontFamily: FontFamily.titleMedium,
+    fontWeight: "500",
+    letterSpacing: 0.1
+  }
 });
 
 export default Perfil;
