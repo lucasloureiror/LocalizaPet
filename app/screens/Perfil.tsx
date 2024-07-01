@@ -11,7 +11,7 @@ const Perfil = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const clickVoltarHandler = () => {
-    navigation.navigate("screens/Desaparecidos");
+    navigation.navigate("(tabs)");
   }
 
   const clickRegistrarAvistamentoHandler = () => {
